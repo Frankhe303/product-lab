@@ -75,6 +75,14 @@ nav .back:hover{color:var(--cyan)}
 .comp-table .us{color:var(--cyan);font-weight:600}
 .comp-table .win{color:#10b981;font-weight:600}
 .why-item{margin-bottom:6px;line-height:1.6}
+.waterfall{display:flex;height:20px;border-radius:4px;overflow:hidden;margin:8px 0}
+.waterfall span{display:flex;align-items:center;justify-content:center;font-size:.5rem;color:#fff;font-family:var(--mono)}
+.wf-bom{background:rgba(0,180,255,.5)}.wf-make{background:rgba(245,158,11,.5)}.wf-ship{background:rgba(236,72,153,.5)}.wf-fee{background:rgba(124,58,237,.4)}.wf-profit{background:rgba(16,185,129,.5)}
+.persona{display:flex;align-items:center;gap:10px;margin:6px 0}
+.persona .avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.ro-step{display:flex;align-items:center;gap:8px;margin:4px 0}
+.ro-step .dot{width:8px;height:8px;border-radius:50%;background:var(--cyand);flex-shrink:0}
+.ro-step .txt{font-size:.65rem;color:var(--txtd)}
 </style>
 </head>
 <body>
@@ -97,7 +105,13 @@ var S = {
     comp:'<b>BAFX Products</b> — Amazon Best Seller · 5K+ reviews · $19.99<br><b>Tadeto</b> — 3K+ reviews · $16.99<br><b>RISEPRO</b> — 2K+ reviews · $15.99<br>AliExpress 同类 ¥30-60，月销数千<br><b>竞品弱点：</b>所有竞品都是"数字显示+条形柱"的冷冰冰界面，没有情绪化交互',
     ai:'固件（ADC 音频采样 + A/C 加权滤波器 + 峰值保持算法 + 自动校准）· PCB 模拟前端降噪布局 · 外壳声学口设计 · 品牌包装与产品文案',
     patent:'<b>发明方向：</b>一种基于情绪化图形反馈的环境噪声监测及分级预警方法<br><b>实用新型：</b>一种带婴儿模式与夜间峰值记忆的便携式噪声监测装置<br><b>新颖点：</b>将分贝值映射为人类可识别表情符号 + 自适应阈值算法',
-    risk:'<b>低</b> — 多场景需求支撑，电子设计成熟。主要技术挑战为工厂校准（可由 AI 编写自动校准固件解决）。竞品众多但无一具备情绪化反馈功能，差异化明确'
+    risk:'<b>低</b> — 多场景需求支撑，电子设计成熟。主要技术挑战为工厂校准（可由 AI 编写自动校准固件解决）。竞品众多但无一具备情绪化反馈功能，差异化明确',
+  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>BAFX</th><th>Tadeto</th></tr><tr><td>屏幕</td><td class="win">OLED彩色</td><td>TN黑白</td><td>TN黑白</td></tr><tr><td>表情反馈</td><td class="win">😊😐😡</td><td>无</td><td>无</td></tr><tr><td>婴儿模式</td><td class="win">50dB阈值</td><td>无</td><td>无</td></tr><tr><td>夜间记忆</td><td class="win">有</td><td>无</td><td>无</td></tr><tr><td>续航</td><td class="win">7天</td><td>3天</td><td>2天</td></tr></table>',
+  size:'约 85×35×12mm · 比打火机略大 · 60g',
+  why:'<div class="why-item">🎯 <b>唯一带婴儿模式的分贝仪</b> — 新手父母的刚需</div><div class="why-item">📸 <b>天然传播素材</b> — emoji变化极易拍视频分享</div><div class="why-item">🔋 <b>7天续航</b> — 是竞品的2-3倍</div>',
+  pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥129 去向</div><div class="waterfall"><span class="wf-bom" style="width:25%">BOM ¥32</span><span class="wf-make" style="width:12%">组装 ¥15</span><span class="wf-ship" style="width:8%">物流 ¥10</span><span class="wf-fee" style="width:15%">佣金 ¥19</span><span class="wf-profit" style="width:40%">利润 ¥53</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,300 · 利润率 41%</div>',
+  gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — Amazon Vine 送出30套换评价</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2-3周</b> — 母婴博主/KOL 种草视频（婴儿模式是天然素材）</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — 投放 Amazon PPC 关键词"baby noise monitor"</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第8周</b> — 目标月销 200+ 套，启动第二批 500 套</div></div>',
+  persona:'<div class="persona"><div class="avatar" style="background:rgba(236,72,153,.15)">👩‍🍼</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">28岁新手妈妈 · 宝宝3个月 · 每天焦虑"外面太吵会不会影响宝宝睡眠" · 愿意为任何能给她安心感的产品买单</div></div>'
   },
   posture: {
     icon:'🧘', name:'智能姿态提醒器', tagline:'不用 App、不用手机——夹衣领上，驼背就温柔振动提醒',
@@ -108,7 +122,13 @@ var S = {
     comp:'<b>Upright GO 2</b> — 高端 · $59.99 · 2K reviews · 但强制依赖手机 App！<br><b>BackBridge</b> — $19.99 · 500 reviews<br>淘宝大量 ¥25-60 山寨款<br><b>关键弱点：所有竞品都需要蓝牙配 App！</b>纯独立硬件市场几乎空白',
     ai:'固件（加速度计姿态向量追踪 + 自适应基线校准 + 振动模式生成 + 超低功耗休眠）· 超微型 PCB 布局（15mm×25mm）· 夹子外壳设计 · 健康礼品包装',
     patent:'<b>发明方向：</b>一种无需外部设备的独立穿戴式姿态监测及自适应提醒方法<br><b>实用新型：</b>一种免 App 的微型防驼背振动提醒装置<br><b>新颖点：</b>完全脱离手机的独立自校准算法，与 Upright GO 形成明确技术代差',
-    risk:'<b>低-中</b> — 远程办公趋势推动需求持续增长。功效争议需注意：定位"工具非疗法"。BOM 仅 ¥25.5 且无 App 开发成本，试错风险极低'
+    risk:'<b>低-中</b> — 远程办公趋势推动需求持续增长。功效争议需注意：定位"工具非疗法"。BOM 仅 ¥25.5 且无 App 开发成本，试错风险极低',
+  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Upright GO</th><th>BackBridge</th></tr><tr><td>需要App</td><td class="win">零依赖</td><td>必须连</td><td>必须连</td></tr><tr><td>重量</td><td class="win">15g</td><td>20g</td><td>25g</td></tr><tr><td>自适应</td><td class="win">AI学习</td><td>无</td><td>无</td></tr><tr><td>续航</td><td class="win">7天</td><td>2天</td><td>3天</td></tr></table>',
+  size:'15×25×8mm · 指甲盖大小 · 15g',
+  why:'<div class="why-item">🔓 <b>唯一不需要手机的</b> — 夹上就用，老人小孩都会</div><div class="why-item">🧠 <b>越用越聪明</b> — 自适应学习你的姿势习惯</div><div class="why-item">🎁 <b>完美礼物</b> — 送"整天坐着"的人</div>',
+  pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥119 去向</div><div class="waterfall"><span class="wf-bom" style="width:21%">BOM ¥25.5</span><span class="wf-make" style="width:10%">组装 ¥12</span><span class="wf-ship" style="width:7%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥18</span><span class="wf-profit" style="width:47%">利润 ¥55.5</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,550 · 利润率 47%</div>',
+  gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — TikTok/小红书"上班族神器"开箱视频</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 健康/办公类 KOL 评测 vs Upright GO</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — 礼品季推广（父亲节/教师节）</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第6周</b> — Amazon "posture corrector" 关键词广告</div></div>',
+  persona:'<div class="persona"><div class="avatar" style="background:rgba(0,212,255,.12)">👨‍💻</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">35岁程序员 · 每天坐10小时 · 腰疼3年了 · 试过 App 版但嫌连手机太麻烦放弃了 · 愿意花 ¥119 试一个真正"无感"的方案</div></div>'
   },
   angle: {
     icon:'📐', name:'迷你数字角度仪', tagline:'3 颗钕磁铁强力吸附 · OLED 仿真气泡动画 · 蜂鸣 0/45/90°',
@@ -119,7 +139,13 @@ var S = {
     comp:'<b>Wixey WR300</b> — 高端 · $39.99 · 2K reviews<br><b>Klein Tools 935DAG</b> — $29.97 · 1K reviews<br><b>GemRed</b> — $19.99 · 500 reviews<br>AliExpress 杂牌 ¥35-80<br>利基品类但用户忠诚度极高，木工圈口碑相传',
     ai:'固件（MPU6050 6 轴传感器 I2C + 互补滤波角度融合 + 蜂鸣触发逻辑）· 紧凑 PCB 布局 · CNC 铝底座设计 · 工具品牌包装',
     patent:'<b>发明方向：</b>一种基于音频反馈的数字水平校准方法及装置<br><b>实用新型：</b>一种带音频播报功能的磁吸式便携数字角度仪<br><b>新颖点：</b>音频+视觉+磁吸三合一交互在工具品类中无先例',
-    risk:'<b>低-中</b> — 利基市场总盘子小于消费电子，但精准用户在工具上花钱不手软。建议同时走五金专业渠道 + Amazon，品牌化后可卖给大厂'
+    risk:'<b>低-中</b> — 利基市场总盘子小于消费电子，但精准用户在工具上花钱不手软。建议同时走五金专业渠道 + Amazon，品牌化后可卖给大厂',
+  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Wixey</th><th>Klein</th></tr><tr><td>音频反馈</td><td class="win">蜂鸣</td><td>无</td><td>无</td></tr><tr><td>气泡动画</td><td class="win">OLED仿真</td><td>LCD数字</td><td>LCD数字</td></tr><tr><td>磁吸</td><td class="win">3磁铁 5kg</td><td>2磁铁</td><td>2磁铁</td></tr><tr><td>售价</td><td class="win">¥129</td><td>¥285</td><td>¥214</td></tr></table>',
+  size:'72×40×18mm · 火柴盒大小 · 80g',
+  why:'<div class="why-item">🔊 <b>不用看屏幕就知道角度</b> — 蜂鸣到点即响</div><div class="why-item">💪 <b>5kg磁吸力</b> — 是竞品的2倍</div><div class="why-item">💰 <b>只要Wixey一半的价钱</b> — 129 vs 285</div>',
+  pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥129 去向</div><div class="waterfall"><span class="wf-bom" style="width:27%">BOM ¥35</span><span class="wf-make" style="width:12%">组装 ¥15</span><span class="wf-ship" style="width:8%">物流 ¥10</span><span class="wf-fee" style="width:15%">佣金 ¥19</span><span class="wf-profit" style="width:38%">利润 ¥50</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,000 · 利润率 39%</div>',
+  gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 木工论坛/YouTube 木工频道送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 发布对比视频 "Wixey vs EldCare 盲测"</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — Amazon 工具类目 + 木工杂志推荐</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第8周</b> — 目标月销 100+，启动五金店渠道</div></div>',
+  persona:'<div class="persona"><div class="avatar" style="background:rgba(245,158,11,.12)">🪚</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">52岁木工手艺爱好者 · 周末在车库做家具 · 对工具精度极其苛刻 · 愿意花 ¥1,000+买一把好刨子但觉得 Wixey ¥285 "不值"</div></div>'
   },
   'dog-collar': {
     icon:'🐕', name:'LED 宠物夜光项圈', tagline:'USB-C 充电 · RGB 随运动节奏律动 · 遥控找狗强闪模式',
@@ -257,6 +283,11 @@ var html = '<div class="header">'+
   '<div class="mcard"><div class="ml">产品尺寸</div><div class="txt" style="font-size:.7rem;color:var(--cyan)">'+(d.size||'查看概念图')+'</div></div>'+
   '<div class="mcard"><div class="ml">为什么选这款</div><div class="txt" style="font-size:.7rem;line-height:2">'+(d.why||'<span style="color:var(--txtm)">即将更新</span>')+'</div></div>'+
   '</div>'+
+  '<div class="grid2">'+
+  '<div class="mcard"><div class="ml">定价拆解</div>'+(d.pricing||'<span style="font-size:.7rem;color:var(--txtm)">即将更新</span>')+'</div>'+
+  '<div class="mcard"><div class="ml">目标用户画像</div>'+(d.persona||'<span style="font-size:.7rem;color:var(--txtm)">即将更新</span>')+'</div>'+
+  '</div>'+
+  '<div class="mcard" style="margin-bottom:.8rem"><div class="ml">上市路径</div><div style="margin-top:4px">'+(d.gtm||'<span style="font-size:.7rem;color:var(--txtm)">即将更新</span>')+'</div></div>'+
   '<div class="back-link"><a href="index.html">&larr; 返回所有方案</a></div>';
 
 document.getElementById('detail').innerHTML = html;
