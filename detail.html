@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品详情 · Product Lab</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06080f;--bg-card:rgba(12,20,35,.85);--bg-hover:rgba(18,30,50,.95);--line:rgba(0,180,255,.12);--line-act:rgba(0,212,255,.5);--cyan:#00d4ff;--cyand:rgba(0,212,255,.6);--cyans:rgba(0,212,255,.12);--blue:#0088ff;--purple:#7c3aed;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--orange:#f97316;--pink:#ec4899;--txt:#e2e8f0;--txtd:#94a3b8;--txtm:#64748b;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,212,255,.03)1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.03)1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.glow{position:fixed;width:600px;height:600px;border-radius:50%;filter:blur(150px);pointer-events:none;z-index:0;animation:gp 8s ease infinite alternate}
+.g1{top:-200px;right:-200px;background:radial-gradient(circle,rgba(0,100,255,.06),transparent)}
+.g2{bottom:-200px;left:-200px;background:radial-gradient(circle,rgba(124,58,237,.05),transparent);animation-delay:-4s}
+@keyframes gp{0%,100%{opacity:.5}50%{opacity:1}}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--cyans);border-radius:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem 2rem;background:linear-gradient(180deg,rgba(6,8,15,.95)0%,transparent 100%);display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-weight:700;font-size:1rem;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
+nav .back{color:var(--cyand);text-decoration:none;font-size:.8rem;transition:color .3s}
+nav .back:hover{color:var(--cyan)}
+.hero{z-index:1;padding:6rem 2rem 3rem;max-width:1000px;margin:0 auto}
+.hero h1{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:.5rem}
+.hero .tagline{font-size:1.05rem;color:var(--txtd);margin-bottom:1.5rem}
+.hero .rank-badge{display:inline-block;padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-family:var(--mono);margin-right:.5rem}
+.rank-badge.gold{background:rgba(245,158,11,.15);color:var(--amber);border:1px solid rgba(245,158,11,.3)}
+.rank-badge.silver{background:rgba(148,163,184,.12);color:var(--txtd);border:1px solid rgba(148,163,184,.3)}
+.content{z-index:1;max-width:1000px;margin:0 auto;padding:0 2rem 4rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.mcard{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:1.5rem;margin-bottom:1rem}
+.mcard.full{grid-column:1/-1}
+.mcard h3{font-size:.82rem;color:var(--txtm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;font-weight:500}
+.mcard .big-num{font-size:2.2rem;font-weight:800;font-family:var(--mono);background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.mcard .big-num sup{font-size:1rem;font-weight:400}
+.mcard .label{font-size:.7rem;color:var(--txtm);margin-top:.2rem}
+.mcard table{width:100%;border-collapse:collapse;font-size:.78rem}
+.mcard table td{padding:.45rem .6rem;border-bottom:1px solid rgba(255,255,255,.03)}
+.mcard table td:first-child{color:var(--txtm);width:40%}
+.mcard table td:last-child{font-family:var(--mono);color:var(--txt)}
+.mcard ul{list-style:none;padding:0}
+.mcard ul li{padding:.35rem 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.8rem;color:var(--txtd)}
+.mcard ul li::before{content:'▸ ';color:var(--cyand);font-size:.6rem}
+.tag-row{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+.tag{font-size:.7rem;padding:.25rem .7rem;border-radius:12px;font-family:var(--mono)}
+.tag.boom{background:rgba(245,158,11,.12);color:var(--amber);border:1px solid rgba(245,158,11,.25)}
+.tag.patent{background:rgba(236,72,153,.12);color:var(--pink);border:1px solid rgba(236,72,153,.25)}
+.tag.both{background:rgba(0,212,255,.1);color:var(--cyan);border:1px solid rgba(0,212,255,.25)}
+.cta{margin-top:2rem;text-align:center}
+.cta a{display:inline-block;background:var(--cyans);border:1px solid var(--cyand);color:var(--cyan);padding:.7rem 2rem;border-radius:25px;text-decoration:none;font-size:.85rem;font-family:var(--mono);transition:all .3s}
+.cta a:hover{background:rgba(0,212,255,.15)}
+.foot{z-index:1;text-align:center;padding:3rem 2rem;color:var(--txtm);font-size:.75rem;border-top:1px solid rgba(255,255,255,.03)}
+.mcard table td.highlight{color:var(--cyan);font-weight:600}
+@media(max-width:768px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<nav>
+  <a href="index.html" class="logo">&#9670; Product Lab</a>
+  <a href="index.html" class="back">&larr; 返回所有方案</a>
+</nav>
+
+<div id="detail"></div>
+
+<footer class="foot">
+  <p>Product Lab &middot; <a href="index.html" style="color:var(--cyand);text-decoration:none">查看全部方案</a></p>
+  <p style="margin-top:.3rem;font-size:.65rem">数据来源：Amazon / AliExpress / 淘宝市场调研 &middot; &copy; 2025</p>
+</footer>
+
+<script>
+var sections = {
+  "decibel": { name:"迷你数字分贝仪", icon:"&#128264;", rank:1, rankLabel:"TOP 1", rankClass:"gold",
+    tagline:"口袋噪声计，OLED 显示分贝值 + 实时柱状图，emoji 表情提示安静/吵闹",
+    tags:["both"],
+    bom:32, price:129, profit:6415, margin:"50%",
+    users:"新手父母（婴儿房噪声监控）、Airbnb 房东、办公族、音乐会爱好者、耳鸣患者",
+    aiRole:"固件（ADC音频采样+dB加权滤波+峰值保持）· PCB模拟前端布局 · 外壳声学口设计 · 包装文案",
+    compets:"BAFX Products (Amazon Best Seller, 5K+ reviews, $19.99) / Tadeto (3K+ reviews, $16.99) / RISEPRO (2K+) / VLIKE (1K+)<br><br>AliExpress 同品类 ¥30-60，月销量数千<br>用户群体分散，非单一场景",
+    usp:"<b>① emoji 情绪化显示：</b>OLED 显示 &#x1f60a;→&#x1f610;→&#x1f621; 随噪声大小变化，极具展示性和传播性<br><b>② 婴儿安全模式：</b>超过 50dB 红灯警告，专为新父母设计<br><b>③ 夜间峰值记忆：</b>自动存储通宵最高分贝值，次日查看",
+    patent:"<b>发明专利方向：</b>一种基于情绪化图形反馈的环境噪声监测及分级预警方法<br><b>实用新型方向：</b>一种便携式婴儿房噪声安全监测装置<br><br>将分贝值映射为人类可识别表情符号的判定算法，以及自动峰-谷记忆存储机制，均为现有竞品不具备的新颖性特征",
+    risk:"<b>低</b> — 多场景需求支撑，电子设计成熟。主要挑战是工厂校准需要参考声源（可由 AI 写校准固件自动完成）。竞品虽多但无不具备表情反馈和婴儿模式"
+  },
+  "posture": { name:"智能姿态提醒器", icon:"&#129496;", rank:2, rankLabel:"TOP 2", rankClass:"silver",
+    tagline:"不用 App、不用手机——夹衣领上，检测驼背就轻轻振动提醒",
+    tags:["both"],
+    bom:25.5, price:119, profit:6215, margin:"52%",
+    users:"久坐白领、远程办公族、学生（上网课/刷题）、颈椎腰椎不适人群、送给「整天坐着」的朋友",
+    aiRole:"固件（加速度计姿态追踪+自适应校准+震动模式+低功耗休眠）· 超微型 PCB 布局 · 最小化夹子外壳设计 · 健康礼品包装",
+    compets:"Upright GO 2（高端，$59.99，2K reviews）——但强制依赖手机 App！ / BackBridge ($19.99, 500 reviews) / 淘宝大量 ¥25-60<br><br><b>关键弱点：所有竞品都需要蓝牙配 App！</b>纯独立硬件市场几乎空白",
+    usp:"<b>① 零 App 依赖：</b>99% 竞品要连手机蓝牙，这个开机即用——夹上就好<br><b>② 自适应提醒节奏：</b>不是每 5 分钟叫一次，而是学习你的姿势习惯，只在真正需要提醒时振动<br><b>③ 无感佩戴：</b>仅 15g，夹在衣领内侧完全隐形",
+    patent:"<b>发明专利方向：</b>一种无需外部设备的独立穿戴式姿态监测及自适应提醒方法<br><b>实用新型方向：</b>一种基于加速度计的免App穿戴式防驼背提醒器<br><br>完全脱离手机 App 的自校准姿态判定方案具备强新颖性，与 Upright GO 等竞品形成明确技术代差",
+    risk:"<b>低-中</b> — 远程办公趋势推动需求增长。功效争议需注意：定位「工具非疗法」，30 天满意保证。BOM 仅 ¥25.5 且无 App 开发成本"
+  },
+  "angle": { name:"迷你数字角度仪", icon:"&#128208;", rank:3, rankLabel:"TOP 3", rankClass:"silver",
+    tagline:"磁吸底座，OLED 仿真水平仪动画，蜂鸣器 0°/45°/90° 自动播报",
+    tags:["patent"],
+    bom:35, price:129, profit:5965, margin:"46%",
+    users:"木工、铣床工、磨刀/磨钻头玩家、3D 打印机调平、RC 模型拼装、精密 DIY",
+    aiRole:"固件（MPU6050 姿态解算+互补滤波+角度计算+蜂鸣触发）· 紧凑 PCB 布局 · CNC 铝底座+ABS 外壳设计 · 工具品牌包装",
+    compets:"Wixey WR300（高端，$39.99, 2K reviews） / Klein Tools 935DAG ($29.97, 1K reviews) / GemRed ($19.99, 500 reviews)<br><br>AliExpress 杂牌 ¥35-80<br>利基品类但用户忠诚，木工圈口碑相传",
+    usp:"<b>① 音频反馈：</b>到 0°/45°/90° 蜂鸣器「滴」一声——不需要看屏幕就知道调好了，竞品无一具备<br><b>② OLED 仿真气泡水平仪：</b>屏幕动态模拟传统气泡水平管的摆动动画，老木匠一看就懂<br><b>③ 工业级磁吸底座：</b>3 颗钕磁铁，吸力 5kg，任意金属面吸附",
+    patent:"<b>发明专利方向：</b>一种基于音频反馈的数字水平校准方法及装置<br><b>实用新型方向：</b>一种带音频播报功能的磁吸式便携数字角度仪<br><br>音频+视觉+磁吸三合一交互在工具品类中无先例，可卖给五金工具品牌或大厂",
+    risk:"<b>低-中</b> — 利基市场总盘子小于消费电子，但用户精准且愿意为工具付费。建议同时走五金专业渠道+Amazon"
+  },
+  "dog-collar": { name:"LED 宠物夜光项圈", icon:"&#128054;", rank:4, rankLabel:"#4", rankClass:"",
+    tagline:"USB-C 充电，随狗狗运动节奏闪动，遥控找狗模式",
+    tags:["boom"],
+    bom:29, price:99, profit:4115, margin:"42%",
+    users:"每天早晚遛狗的人群、郊区/农村宠物主、比特犬/黑狗等深色毛犬主、圣诞节/万圣节宠物礼物",
+    aiRole:"固件（RGB LED 动画+振动传感器运动检测+遥控配对+充电管理）· 柔性/硬质 PCB 设计 · IP65 防水电子舱 · 宠物用品品牌包装",
+    compets:"Nite Ize NiteDog（$19.99, 3K reviews） / Illumiseen（$14.99, 2K reviews） / BSEEN（$9.99, 5K reviews——但用纽扣电池非充电）<br><br>AliExpress ¥15-40，品类火热<br>痛点真实：早晚遛狗看不见宠物是安全隐患",
+    usp:"<b>① 随心跳律动：</b>振动传感器检测运动强度，跑快了灯闪加速——视觉效果极强，容易拍视频传播<br><b>② 找狗模式：</b>配一个小遥控器，按下后项圈强闪白光——夜里找狗无敌<br><b>③ USB-C 充电：</b>多数竞品还用纽扣电池，这个续航 8 小时一充",
+    patent:"<b>实用新型方向：</b>一种可感测宠物运动强度并自适应调节发光效果的智能项圈<br>专利较弱，主要靠渠道和品牌",
+    risk:"<b>中</b> — 尺码退换是主要问题（项圈不合适）。方案：通用可调尺寸（35-65cm）+ 详细尺码图 + 换货政策。情绪购买属性强，适合视频平台传播"
+  },
+  "solder": { name:"迷你 T12 焊台", icon:"&#128295;", rank:5, rankLabel:"#5", rankClass:"",
+    tagline:"手掌大小，Type-C PD 20V 供电，1.3 寸 OLED + 旋钮控温",
+    tags:["patent"],
+    bom:33, price:99, profit:4800, margin:"42%",
+    users:"电子 DIY 玩家、大学电子社团/实验室、维修师傅（上门维修便携）、嵌入式开发者",
+    aiRole:"固件（PID 温控算法+K型热电偶冷端补偿+PD协议握手+OLED菜单）· 功率级 PCB Layout · 便携工具外壳设计 · 产品说明书",
+    compets:"TS100/TS101（¥168-268，知名品牌） / 深圳白光 BK950D（¥68） / 淘宝杂牌 T12 一体手柄 ¥45-80<br><br>用户群小而精，购买力强且对品质敏感",
+    usp:"<b>① 真・手机大小：</b>65×45×22mm，放口袋带走，竞品 TS100 还是偏大<br><b>② PD 供电：</b>直接用充电头或充电宝，不需要专用电源<br><b>③ 开源固件：</b>AI 生成的固件可以开源，吸引社区共建，建立壁垒",
+    patent:"<b>发明专利方向：</b>一种基于 USB PD 协议的便携式可编程温控焊接工具<br><b>实用新型方向：</b>一种集成 Type-C PD 供电的掌上式智能焊台<br><br>PD + 迷你化 + 开源固件的组合具备新颖性",
+    risk:"<b>中</b> — 利基工具，技术门槛高于消费电子。功率级 PCB 需要额外注意（MOS管散热、走线宽度）。售后可能略多于其他方案"
+  },
+  "thermo": { name:"2秒速测烧烤温度计", icon:"&#127860;", rank:6, rankLabel:"#6", rankClass:"",
+    tagline:"折叠探针，OLED 显示温度迷你折线图，磁吸贴烤炉",
+    tags:["boom"],
+    bom:30.5, price:89, profit:3215, margin:"36%",
+    users:"BBQ 爱好者（欧美巨大市场）、家庭烘焙党、牛排硬核玩家、婴儿辅食温度检测",
+    aiRole:"固件（热电偶 ADC 采样+冷端补偿+温度曲线缓存+自动休眠+磁吸检测）· 超薄折叠 PCB · 食品级不锈钢探针外壳 · BBQ 主题包装",
+    compets:"ThermoPro TP19H（Amazon 霸主，25K+ reviews! $19.99） / Alpha Grillers (15K reviews, $15.99) / KIZEN (10K reviews, $12.97)<br><br>市场巨大——BBQ 是美国第一大户外烹饪活动<br>AliExpress ¥25-50 海量通用款",
+    usp:"<b>① 温度迷你折线图：</b>OLED 显示最近 30 秒的温度变化曲线——牛排什么时候「plateau」一目了然<br><b>② 磁吸背板：</b>贴烤炉/烤箱/冰箱，不占手。多数竞品无磁吸<br><b>③ 目标温度提醒：</b>预设 5 种肉类熟度（rare→well-done），到达后震动蜂鸣",
+    patent:"<b>实用新型方向：</b>一种带温度曲线显示功能的折叠式食品温度计<br>专利点较弱，主要靠功能差异化",
+    risk:"<b>低-中</b> — 市场极大但 ThermoPro 品牌优势强。需靠 Amazon Vine 获取冷启动评价 + 温度折线图差异化。BBQ 圈是热情社区，口碑传播快"
+  },
+  "powermeter": { name:"USB 迷你功率计", icon:"&#9889;", rank:7, rankLabel:"#7", rankClass:"",
+    tagline:"Type-C 公母直插，0.96 寸 OLED，电压/电流/功率/电量四合一",
+    tags:["both"],
+    bom:21.5, price:59, profit:3000, margin:"44%",
+    users:"充电头玩家（快充协议测试）、数码博主、极客、电池容量测试、太阳能板输出检测",
+    aiRole:"固件（INA219 ADC采样+实时计算+OLED四屏切换+累计电量存储）· 超小 PCB 布局 · 铝合金外壳设计 · 数码品牌文案",
+    compets:"维简 C 口功率计（淘宝头部，月销 2000+, ¥29-49） / FNIRSI（¥39-69） / AliExpress 杂牌 ¥15-25<br><br>市场成熟但无品牌化，全是白牌",
+    usp:"<b>① 高颜值品牌化：</b>铝合金阳极氧化外壳+品牌 Logo——竞品全是裸板或廉价塑料壳<br><b>② 真彩色 OLED：</b>竞品多为单色 TN 屏，用 128×64 全彩 OLED 显示，画面更精致<br><b>③ 双口记录：</b>同时记录电压和电流的 min/max/avg——竞品只能看实时值",
+    patent:"<b>实用新型方向：</b>一种直插式双面OLED显示的USB功率监测装置<br>OLED 双面嵌入+数据统计功能具备一定新颖性",
+    risk:"<b>中</b> — 标品竞争激烈，维简/FNIRSI 有忠实用户群。需靠颜值+品牌打出差异化。BOM 最低仅 ¥21.5，试错成本极低"
+  },
+  "eink-clock": { name:"E-Ink 桌面温湿度时钟", icon:"&#128343;", rank:8, rankLabel:"#8", rankClass:"",
+    tagline:"超市价签同款电子墨水屏，护眼不发光，纽扣电池半年续航",
+    tags:["boom"],
+    bom:26, price:79, profit:3400, margin:"43%",
+    users:"程序员桌面、极简主义者、卧室/婴儿房（无蓝光）、办公桌、摄影棚（温湿度监控）",
+    aiRole:"固件（E-Ink 局部刷新驱动+HTU21D传感器I2C读取+RTC时钟+超低功耗休眠）· 极简外壳设计 · 日系/北欧风格包装",
+    compets:"小米温湿度计 2（蓝牙版 ¥29，但用纽扣+需要手机看） / 淘宝 E-Ink 桌面钟 ¥39-89<br><br>品类偏小众但用户粘性高。E-Ink 的「不发光」是双刃剑",
+    usp:"<b>① 真・半年续航：</b>不用充电、不用插线——两节 CR2032 用半年。竞品大多 1-3 个月<br><b>② 护眼零蓝光：</b>E-Ink 靠环境光反射，没有背光，放床头不影响睡眠<br><b>③ 极简高颜值：</b>日系无印良品风格，摆在桌面上像装饰品不像工具",
+    patent:"无显著可专利点。E-Ink 屏货源（超市价签拆机屏）可能不稳定，需确保供应链",
+    risk:"<b>低</b> — 电子设计简单，无售后。主要风险是 E-Ink 屏货源（价签拆机屏不批量化），建议找正规渠道采购 Waveshare 或 Good Display 模组"
+  },
+  "luggage": { name:"迷你数字行李秤", icon:"&#128717;", rank:9, rankLabel:"#9", rankClass:"",
+    tagline:"手掌大小挂钩秤，LCD 显示+LED 红绿超重提示，预置主流航司限额",
+    tags:["patent"],
+    bom:25, price:69, profit:2265, margin:"33%",
+    users:"国际旅客、留学生、廉航常客、代购、出差族",
+    aiRole:"固件（HX711传感器驱动+单位切换kg/lb+航司限额预设菜单+自动关机）· 手持外壳人体工学设计 · 包装礼品化",
+    compets:"Travel Inspira（Amazon BS, 4.8K reviews, $9.49） / KINGON ($24.79) / Meilen (3.4K reviews, $14.24)<br><br>AliExpress 通用款 ¥15-35，超大宗量<br>低价位段极其拥挤",
+    usp:"<b>① 航司限额预置：</b>内置 20+ 主流航司的免费行李限额数据——称重后直接红绿 LED 告诉你超没超。竞品全是笨显示！<br><b>② 「超重躲不掉」功能：</b>超过航司限额时屏幕闪烁+蜂鸣，帮你当场做决定<br><b>③ 礼品化包装：</b>竞品清一色裸包装——做成旅行礼品市场",
+    patent:"<b>实用新型方向：</b>一种预置航空行李限额数据并具备超重提醒功能的便携式电子行李秤<br>航司限额预置+LED超重判断是真实差异化，竞品无人做到",
+    risk:"<b>中</b> — 低价位段竞争血腥（AliExpress ¥15），需靠功能+品牌+Amazon FBA 支撑 ¥69 售价。利润率仅 33%，需走量"
+  },
+  "soil": { name:"3合1 土壤检测仪", icon:"&#127793;", rank:10, rankLabel:"#10", rankClass:"",
+    tagline:"插进花盆测湿度/pH/光照，LCD 三合一 + 笑脸植物健康指示",
+    tags:["boom"],
+    bom:21.5, price:59, profit:1815, margin:"31%",
+    users:"室内绿植党（TikTok/小红书巨大流量）、阳台种菜、多肉玩家、花园新手",
+    aiRole:"固件（双探针湿度ADC采样+pH电极读取+光敏电阻+LCD驱动+自动关机）· 人体工学手柄设计 · 植物主题包装+养护指南卡片",
+    compets:"XLUX T10（Amazon BS, 10K+ reviews, $10.99，但只有湿度） / Sonkir (8K+, $9.99) / Atree (5K+, $9.99) / Govee 蓝牙版 ($15.99)<br><br>每 1-2 个新植物主人就买一个——市场极大",
+    usp:"<b>① 拔出保留读数：</b>多数检测仪拔出后读数消失——这个保留上一次测量值（LCD记忆功能），方便对比<br><b>② 植物开心指数：</b>综合湿度+pH+光照三指标，给出一个笑脸/哭脸 emoji——让「看不懂数据」的人也能用<br><b>③ 养护指南卡片：</b>包装附赠 20 种常见植物的理想参数对照表",
+    patent:"无显著可专利点。但买量优势（BOM最低、用户最广）使它成为「先跑通流程」的最佳选择",
+    risk:"<b>低</b> — 验证最充分的市场，简单电子，BOM ¥21.5 最低。利润薄（31%），需走大量。竞争极度激烈，靠指南卡片+笑脸 emoji 打出差异化"
+  }
+};
+
+function loadDetail() {
+  var key = new URLSearchParams(window.location.search).get('s');
+  var data = sections[key] || sections['decibel'];
+  var tr = data.tags.map(function(t){return t=='boom'?'&#128165; 爆品路线':t=='patent'?'&#128220; 专利路线':'&#128640; 爆品+专利';}).join(' + ');
+  var tagHTML = data.tags.map(function(t){return '<span class="tag '+t+'">'+(t=='boom'?'&#128165; 爆品':t=='patent'?'&#128220; 专利':'&#128640; 双重')+'</span>';}).join('');
+
+  var html = 
+  '<div class="hero">'+
+    '<h1>'+data.icon+' '+data.name+'</h1>'+
+    '<p class="tagline">'+data.tagline+'</p>'+
+    '<span class="rank-badge '+data.rankClass+'">'+data.rankLabel+'</span>'+
+    '<div class="tag-row">'+tagHTML+'</div>'+
+  '</div>'+
+
+  '<div class="content">'+
+    '<div class="grid2">'+
+      '<div class="mcard">'+
+        '<h3>BOM 成本</h3>'+
+        '<div class="big-num">'+data.bom+'<sup> /套</sup></div>'+
+        '<div class="label">量产 100 套的单套元器件成本</div>'+
+      '</div>'+
+      '<div class="mcard">'+
+        '<h3>建议售价</h3>'+
+        '<div class="big-num">'+data.price+'<sup> /套</sup></div>'+
+        '<div class="label">Amazon / 淘宝同品类定价参照</div>'+
+      '</div>'+
+      '<div class="mcard">'+
+        '<h3>100 套预估利润</h3>'+
+        '<div class="big-num">'+data.profit+'<sup> 元</sup></div>'+
+        '<div class="label">扣除 BOM + 组装 + 物流 + 平台佣金后 · 利润率 '+data.margin+'</div>'+
+      '</div>'+
+      '<div class="mcard">'+
+        '<h3>目标用户</h3>'+
+        '<p style="font-size:.8rem;color:var(--txtd);line-height:1.8">'+data.users+'</p>'+
+      '</div>'+
+    '</div>'+
+
+    '<div class="mcard">'+
+      '<h3>竞品格局</h3>'+
+      '<p style="font-size:.8rem;color:var(--txtd);line-height:1.8">'+data.compets+'</p>'+
+    '</div>'+
+
+    '<div class="mcard">'+
+      '<h3>独特卖点 (USP)</h3>'+
+      '<p style="font-size:.8rem;color:var(--txtd);line-height:1.9">'+data.usp+'</p>'+
+    '</div>'+
+
+    '<div class="mcard">'+
+      '<h3>AI 可以做什么</h3>'+
+      '<p style="font-size:.8rem;color:var(--txtd);line-height:1.8">'+data.aiRole+'</p>'+
+    '</div>'+
+
+    '<div class="mcard">'+
+      '<h3>专利评估</h3>'+
+      '<p style="font-size:.8rem;color:var(--txtd);line-height:1.9">'+data.patent+'</p>'+
+    '</div>'+
+
+    '<div class="mcard">'+
+      '<h3>风险评估</h3>'+
+      '<p style="font-size:.8rem;color:var(--txtd);line-height:1.8">'+data.risk+'</p>'+
+    '</div>'+
+
+    '<div class="cta">'+
+      '<a href="index.html">&larr; 返回查看所有 10 个方案</a>'+
+    '</div>'+
+  '</div>';
+
+  document.getElementById('detail').innerHTML = html;
+  document.title = data.name + ' · Product Lab';
+}
+loadDetail();
+</script>
+</body>
+</html>

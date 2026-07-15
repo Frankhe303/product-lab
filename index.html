@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>产品实验室 · 10 个小硬件产品方案</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#06080f;--bg-card:rgba(12,20,35,.85);--bg-hover:rgba(18,30,50,.95);--line:rgba(0,180,255,.12);--line-act:rgba(0,212,255,.5);--cyan:#00d4ff;--cyand:rgba(0,212,255,.6);--cyans:rgba(0,212,255,.12);--blue:#0088ff;--purple:#7c3aed;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--orange:#f97316;--pink:#ec4899;--txt:#e2e8f0;--txtd:#94a3b8;--txtm:#64748b;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--txt);line-height:1.6;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,212,255,.03)1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.03)1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.glow{position:fixed;width:600px;height:600px;border-radius:50%;filter:blur(150px);pointer-events:none;z-index:0;animation:gp 8s ease infinite alternate}
+.g1{top:-200px;right:-200px;background:radial-gradient(circle,rgba(0,100,255,.06),transparent)}
+.g2{bottom:-200px;left:-200px;background:radial-gradient(circle,rgba(124,58,237,.05),transparent);animation-delay:-4s}
+@keyframes gp{0%,100%{opacity:.5}50%{opacity:1}}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--cyans);border-radius:3px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem 2rem;background:linear-gradient(180deg,rgba(6,8,15,.95)0%,transparent 100%);display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-weight:700;font-size:1rem;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+nav .nav-links{display:flex;gap:1.5rem;font-size:.78rem}
+nav .nav-links a{color:var(--txtd);text-decoration:none;transition:color .3s}
+nav .nav-links a:hover{color:var(--cyan)}
+.hero{z-index:1;min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem}
+.hero .badge{background:var(--cyans);border:1px solid var(--cyand);color:var(--cyan);padding:.3rem .8rem;border-radius:20px;font-size:.7rem;font-family:var(--mono);margin-bottom:1.5rem;letter-spacing:.05em}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;line-height:1.1;margin-bottom:.8rem;background:linear-gradient(135deg,#fff 0%,var(--cyan) 40%,var(--blue) 70%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:clamp(.9rem,1.5vw,1.2rem);color:var(--txtd);max-width:600px;margin-bottom:2rem;font-weight:300}
+.hero .stats{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:1.5rem}
+.hero .stat{background:var(--bg-card);border:1px solid var(--line);border-radius:12px;padding:.7rem 1.3rem;min-width:90px}
+.hero .stat .n{font-size:1.3rem;font-weight:700;color:var(--cyan);font-family:var(--mono)}
+.hero .stat .l{font-size:.65rem;color:var(--txtm);margin-top:.1rem;text-transform:uppercase;letter-spacing:.05em}
+.hint{color:var(--txtm);font-size:.65rem;letter-spacing:.1em;animation:bc 2s ease infinite;margin-top:2rem}
+@keyframes bc{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+.section{z-index:1;max-width:1300px;margin:0 auto;padding:4rem 2rem}
+.section h2{text-align:center;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:700;margin-bottom:1rem}
+.section h2 small{display:block;font-size:.75rem;font-weight:300;color:var(--txtd);margin-top:.3rem}
+
+/* Strategy toggle */
+.strategy-toggle{display:flex;justify-content:center;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.strategy-toggle button{background:var(--bg-card);border:1px solid var(--line);color:var(--txtd);padding:.5rem 1.2rem;border-radius:20px;cursor:pointer;font-size:.75rem;font-family:var(--sans);transition:all .3s}
+.strategy-toggle button:hover,.strategy-toggle button.active{background:var(--cyans);border-color:var(--cyand);color:var(--cyan)}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.card{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:1.5rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .4s;position:relative;overflow:hidden;cursor:pointer}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyans),transparent);opacity:0;transition:opacity .4s}
+.card:hover{background:var(--bg-hover);border-color:var(--line-act);transform:translateY(-4px);box-shadow:0 12px 50px rgba(0,212,255,.08)}
+.card:hover::before{opacity:1}
+.card .card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.8rem}
+.card .rank{font-size:.7rem;font-family:var(--mono);background:var(--cyans);color:var(--cyan);padding:.2rem .6rem;border-radius:12px}
+.card .rank.gold{background:rgba(245,158,11,.15);color:var(--amber)}
+.card .rank.silver{background:rgba(148,163,184,.12);color:var(--txtd)}
+.card .icon{font-size:2rem;margin-bottom:.3rem}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:.3rem}
+.card .tagline{font-size:.78rem;color:var(--txtd);margin-bottom:.8rem;line-height:1.4}
+.card .metrics{display:flex;gap:.8rem;margin-bottom:.8rem;flex-wrap:wrap}
+.card .metric{font-size:.68rem;font-family:var(--mono);color:var(--txtm)}
+.card .metric span{color:var(--cyan);font-weight:600}
+.card .patent{display:inline-flex;align-items:center;gap:.25rem;font-size:.65rem;color:var(--amber);font-family:var(--mono);margin-bottom:.6rem}
+.card .arrow{text-align:right;margin-top:.5rem;color:var(--cyand);font-size:.85rem;opacity:0;transition:opacity .4s;flex:1;display:flex;align-items:flex-end;justify-content:flex-end}
+.card:hover .arrow{opacity:1}
+
+/* Color accents per card */
+.card:nth-child(1){border-left:2px solid var(--amber)}
+.card:nth-child(2){border-left:2px solid var(--pink)}
+.card:nth-child(3){border-left:2px solid var(--cyan)}
+.card:nth-child(4){border-left:2px solid var(--green)}
+.card:nth-child(5){border-left:2px solid var(--red)}
+.card:nth-child(6){border-left:2px solid var(--purple)}
+.card:nth-child(7){border-left:2px solid var(--orange)}
+.card:nth-child(8){border-left:2px solid var(--blue)}
+.card:nth-child(9){border-left:2px solid var(--amber)}
+.card:nth-child(10){border-left:2px solid var(--cyan)}
+
+/* Bottom section */
+.info-bar{z-index:1;max-width:800px;margin:0 auto 3rem;padding:1.5rem 2rem;background:var(--bg-card);border:1px solid var(--line);border-radius:16px;display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+.info-bar .item{text-align:center}
+.info-bar .item .v{font-size:1.2rem;font-weight:700;font-family:var(--mono)}
+.info-bar .item .v.a{color:var(--amber)}
+.info-bar .item .v.b{color:var(--pink)}
+.info-bar .item .l{font-size:.65rem;color:var(--txtm);margin-top:.2rem}
+
+.foot{z-index:1;text-align:center;padding:3rem 2rem;color:var(--txtm);font-size:.75rem;border-top:1px solid rgba(255,255,255,.03)}
+
+@media(max-width:768px){.cards{grid-template-columns:1fr}.section{padding:2rem 1rem}.hero{min-height:60vh}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<nav>
+  <div class="logo">&#9670; Product Lab</div>
+  <div class="nav-links">
+    <a href="#products">产品方案</a>
+    <a href="#strategy">商业化路线</a>
+    <a href="https://github.com/Frankhe303/product-lab">GitHub</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="badge">AI-ASSISTED HARDWARE LAB</div>
+  <h1>产品实验室</h1>
+  <p>用 AI 辅助设计 · 验证 · 量产 · 销售<br>10 个小硬件产品方案，找到第一个能卖爆的</p>
+  <div class="stats">
+    <div class="stat"><div class="n">10</div><div class="l">候选方案</div></div>
+    <div class="stat"><div class="n">&lt;&yen;40</div><div class="l">BOM 成本</div></div>
+    <div class="stat"><div class="n">&yen;59-129</div><div class="l">售价区间</div></div>
+    <div class="stat"><div class="n">30-52%</div><div class="l">利润率</div></div>
+  </div>
+  <div class="hint">点击产品卡片查看完整调研 &#8595;</div>
+</section>
+
+<section class="section" id="products">
+  <h2>10 个候选产品方案 <small>每个方案含市场调研 · BOM 拆解 · 竞品分析 · 专利评估</small></h2>
+
+  <div class="strategy-toggle" id="strategy">
+    <button class="active" onclick="filterCards('all')">全部方案</button>
+    <button onclick="filterCards('boom')">&#128165; 爆品路线</button>
+    <button onclick="filterCards('patent')">&#128220; 专利路线</button>
+    <button onclick="filterCards('both')">&#128640; 双重路线</button>
+  </div>
+
+  <div class="cards" id="cardContainer">
+
+    <a href="detail.html?s=decibel" class="card" data-tags="both">
+      <div class="card-header"><span class="rank gold">TOP 1</span></div>
+      <div class="icon">&#128264;</div>
+      <h3>迷你数字分贝仪</h3>
+      <div class="tagline">口袋噪声计，OLED + emoji 表情 + 婴儿模式，夜间峰值记忆</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;32</span></div>
+        <div class="metric">售价 <span>&yen;129</span></div>
+        <div class="metric">净利 <span>&yen;6,415</span></div>
+      </div>
+      <div class="patent">&#128220; 可专利：婴儿噪声安全分级方法</div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=posture" class="card" data-tags="both">
+      <div class="card-header"><span class="rank silver">TOP 2</span></div>
+      <div class="icon">&#129496;</div>
+      <h3>智能姿态提醒器</h3>
+      <div class="tagline">不用 App、不用手机，夹衣领检测驼背振动提醒</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;25.5</span></div>
+        <div class="metric">售价 <span>&yen;119</span></div>
+        <div class="metric">净利 <span>&yen;6,215</span></div>
+      </div>
+      <div class="patent">&#128220; 可专利：独立硬件的姿态自校准方法</div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=angle" class="card" data-tags="patent">
+      <div class="card-header"><span class="rank silver">TOP 3</span></div>
+      <div class="icon">&#128208;</div>
+      <h3>迷你数字角度仪</h3>
+      <div class="tagline">磁吸底座，OLED 仿真水平仪，蜂鸣 0°/45°/90°</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;35</span></div>
+        <div class="metric">售价 <span>&yen;129</span></div>
+        <div class="metric">净利 <span>&yen;5,965</span></div>
+      </div>
+      <div class="patent">&#128220; 可专利：音频反馈式数字水平校准方法</div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=dog-collar" class="card" data-tags="boom">
+      <div class="card-header"><span>#4</span></div>
+      <div class="icon">&#128054;</div>
+      <h3>LED 宠物夜光项圈</h3>
+      <div class="tagline">USB 充电，随运动节奏闪动，遥控找狗模式</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;29</span></div>
+        <div class="metric">售价 <span>&yen;99</span></div>
+        <div class="metric">净利 <span>&yen;4,115</span></div>
+      </div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=solder" class="card" data-tags="patent">
+      <div class="card-header"><span>#5</span></div>
+      <div class="icon">&#128295;</div>
+      <h3>迷你 T12 焊台</h3>
+      <div class="tagline">Type-C PD 供电，手掌大小，PID 温控</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;33</span></div>
+        <div class="metric">售价 <span>&yen;99</span></div>
+        <div class="metric">净利 <span>&yen;4,800</span></div>
+      </div>
+      <div class="patent">&#128220; 可专利：PD 供电的便携焊台拓扑</div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=thermo" class="card" data-tags="boom">
+      <div class="card-header"><span>#6</span></div>
+      <div class="icon">&#127860;</div>
+      <h3>2秒速测烧烤温度计</h3>
+      <div class="tagline">折叠探针，OLED 温度折线图，磁吸贴烤炉</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;30.5</span></div>
+        <div class="metric">售价 <span>&yen;89</span></div>
+        <div class="metric">净利 <span>&yen;3,215</span></div>
+      </div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=powermeter" class="card" data-tags="both">
+      <div class="card-header"><span>#7</span></div>
+      <div class="icon">&#9889;</div>
+      <h3>USB 迷你功率计</h3>
+      <div class="tagline">Type-C 直插，OLED 显示 V/A/W，比打火机小</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;21.5</span></div>
+        <div class="metric">售价 <span>&yen;59</span></div>
+        <div class="metric">净利 <span>&yen;3,000</span></div>
+      </div>
+      <div class="patent">&#128220; 可专利：USB-C 直插式微型功率采样</div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=eink-clock" class="card" data-tags="boom">
+      <div class="card-header"><span>#8</span></div>
+      <div class="icon">&#128343;</div>
+      <h3>E-Ink 桌面温湿度时钟</h3>
+      <div class="tagline">护眼不发光，纽扣电池半年，极简日系风</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;26</span></div>
+        <div class="metric">售价 <span>&yen;79</span></div>
+        <div class="metric">净利 <span>&yen;3,400</span></div>
+      </div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=luggage" class="card" data-tags="patent">
+      <div class="card-header"><span>#9</span></div>
+      <div class="icon">&#128717;</div>
+      <h3>迷你数字行李秤</h3>
+      <div class="tagline">预置航司限额，超重红/绿灯，手掌大小</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;25</span></div>
+        <div class="metric">售价 <span>&yen;69</span></div>
+        <div class="metric">净利 <span>&yen;2,265</span></div>
+      </div>
+      <div class="patent">&#128220; 可专利：便携行李秤的航司限额预置</div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+    <a href="detail.html?s=soil" class="card" data-tags="boom">
+      <div class="card-header"><span>#10</span></div>
+      <div class="icon">&#127793;</div>
+      <h3>3合1 土壤检测仪</h3>
+      <div class="tagline">湿度/pH/光照 LCD 三合一，拔出保留读数</div>
+      <div class="metrics">
+        <div class="metric">BOM <span>&yen;21.5</span></div>
+        <div class="metric">售价 <span>&yen;59</span></div>
+        <div class="metric">净利 <span>&yen;1,815</span></div>
+      </div>
+      <div class="arrow">&#8594; 查看完整调研</div>
+    </a>
+
+  </div>
+</section>
+
+<section class="info-bar" id="strategy">
+  <div class="item"><div class="v a">&#128165; 爆品路线</div><div class="l">6 个方案适合</div></div>
+  <div class="item"><div class="v b">&#128220; 专利路线</div><div class="l">7 个方案有可专利点</div></div>
+  <div class="item"><div class="v a">&#128640; 双重覆盖</div><div class="l">3 个方案「爆品+专利」</div></div>
+  <div class="item"><div class="v b">&#127942; 首发推荐</div><div class="l">分贝仪 / 姿态提醒器</div></div>
+</section>
+
+<footer class="foot">
+  <p>Product Lab &middot; AI-Assisted Hardware &middot; <a href="https://github.com/Frankhe303/product-lab" style="color:var(--cyand);text-decoration:none">GitHub</a></p>
+  <p style="margin-top:.3rem;font-size:.65rem">每次讨论后自动更新 &middot; &copy; 2025</p>
+</footer>
+
+<script>
+function filterCards(tag) {
+  document.querySelectorAll('.strategy-toggle button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.card').forEach(card => {
+    if (tag === 'all' || card.dataset.tags.includes(tag)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
