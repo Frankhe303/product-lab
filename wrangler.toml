@@ -1,0 +1,6 @@
+name = "product-lab"
+main = "worker.js"
+compatibility_date = "2025-07-15"
+
+[site]
+bucket = "./"
