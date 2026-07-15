@@ -131,16 +131,6 @@ var D=[
 {id:'eink-clock',r:8,icon:'🕳️',name:'E-Ink 温湿度时钟',tg:'护眼不发光 · 纽扣电池半年 · 极简日系',b:26,p:79,pr:3400,m:'43%',tg2:['boom']},
 {id:'luggage',r:9,icon:'🛗',name:'迷你数字行李秤',tg:'航司限额预置 · 超重红/绿 LED · 手掌大小',b:25,p:69,pr:2265,m:'33%',tg2:['patent']},
 {id:'soil',r:10,icon:'🌱',name:'3合1 土壤检测仪',tg:'湿度/pH/光照 · 拔出保留读数 · 笑脸指数',b:21.5,p:59,pr:1815,m:'31%',tg2:['boom']}
-{id:'pill-cap',r:11,icon:'💊',name:'智能药瓶计时盖',tg:'替换标准药瓶盖 · LCD 显示上次开盖时间 · 定时蜂鸣提醒',b:20,p:89,pr:4800,m:'54%',tg2:['boom', 'patent']},
-{id:'spoon-scale',r:12,icon:'🥄',name:'数字称重量勺',tg:'挖一勺同时称重 · 0.1g 精度 · 双头可换 · USB-C 充电',b:33,p:109,pr:5200,m:'48%',tg2:['boom']},
-{id:'jump-rope',r:13,icon:'🏃',name:'霍尔感应智能跳绳',tg:'霍尔效应精准计数 · LCD 屏 · 蓝牙同步 · 比机械式准 10 倍',b:34,p:89,pr:3500,m:'39%',tg2:['boom']},
-{id:'laser-measure',r:14,icon:'📏',name:'钥匙扣激光测距仪',tg:'火柴盒大小 · 30m 量程 · 铝合金 CNC · USB-C 充电',b:36.5,p:129,pr:5500,m:'43%',tg2:['patent']},
-{id:'hand-warmer',r:15,icon:'🔥',name:'数显双面暖手宝',tg:'LCD 实时温度显示 · 双面加热 · 兼做充电宝 · PID 恒温',b:34,p:89,pr:3500,m:'39%',tg2:['boom']},
-{id:'eco2',r:16,icon:'🌬️',name:'便携 eCO2 空气监测仪',tg:'VOC 估算 CO2 · 交通灯环显示 · 超标蜂鸣提醒',b:39,p:149,pr:6800,m:'46%',tg2:['boom', 'patent']},
-{id:'uv-toothbrush',r:17,icon:'🪥',name:'感应式 UV 牙刷消毒器',tg:'人体感应自动启动 · 微型风扇干燥 · 倒计时显示 · 磁吸壁挂',b:38.5,p:119,pr:5200,m:'44%',tg2:['boom', 'patent']},
-{id:'bike-light',r:18,icon:'🚲',name:'刹车感应智能尾灯',tg:'加速度计自动检测刹车 · 爆闪提醒后车 · 无线转向遥控',b:37,p:129,pr:5500,m:'43%',tg2:['boom', 'patent']},
-{id:'bottle-band',r:19,icon:'🍼',name:'婴儿奶瓶温度指示环',tg:'套在任何奶瓶上 · 红/黄/绿 LED 一眼知温 · 不用手腕试温',b:14,p:69,pr:4200,m:'61%',tg2:['boom', 'patent']},
-{id:'pet-fountain',r:20,icon:'🐱',name:'宠物饮水机智能监控器',tg:'电容水位感应 · 滤芯寿命提醒 · LED 灯环 · 夹上即用',b:24.5,p:89,pr:4500,m:'51%',tg2:['boom', 'patent']},
 ];
 var cf='all';
 function filter(f){cf=f;document.querySelectorAll('.filter-bar button').forEach(function(b,i){b.classList.toggle('active',f==='all'&&i===0||f==='boom'&&i===1||f==='patent'&&i===2||f==='both'&&i===3)});render();}
