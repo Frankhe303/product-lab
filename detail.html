@@ -69,6 +69,12 @@ nav .back:hover{color:var(--cyan)}
 .m-knob{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#253550,#0d1525);border:2px solid rgba(255,255,255,.12);position:relative}
 .m-knob::after{content:"";position:absolute;top:5px;left:50%;width:2px;height:8px;background:var(--cyand);border-radius:1px}
 @keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+.comp-table{width:100%;border-collapse:collapse;font-size:.65rem}
+.comp-table td,.comp-table th{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.04);text-align:center}
+.comp-table th{color:var(--txtm);font-weight:400;font-size:.58rem}
+.comp-table .us{color:var(--cyan);font-weight:600}
+.comp-table .win{color:#10b981;font-weight:600}
+.why-item{margin-bottom:6px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -225,6 +231,11 @@ var html = '<div class="header">'+
   '<div class="mcard"><div class="ml">风险评估</div><div class="txt" style="font-size:.7rem">'+d.risk+'</div></div>'+
   '</div>'+
 
+  '<div class="mcard" style="margin-bottom:.8rem"><div class="ml">竞品功能对比</div><div class="txt">'+(d.compare||'<span style="color:var(--txtm)">即将更新</span>')+'</div></div>'+
+  '<div class="grid2">'+
+  '<div class="mcard"><div class="ml">产品尺寸</div><div class="txt" style="font-size:.7rem;color:var(--cyan)">'+(d.size||'查看概念图')+'</div></div>'+
+  '<div class="mcard"><div class="ml">为什么选这款</div><div class="txt" style="font-size:.7rem;line-height:2">'+(d.why||'<span style="color:var(--txtm)">即将更新</span>')+'</div></div>'+
+  '</div>'+
   '<div class="back-link"><a href="index.html">&larr; 返回所有方案</a></div>';
 
 document.getElementById('detail').innerHTML = html;
