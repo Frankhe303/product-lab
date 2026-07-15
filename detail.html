@@ -21,7 +21,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.8rem 2rem;backgroun
 nav .logo{font-weight:700;font-size:1rem;background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
 nav .back{color:var(--cyand);text-decoration:none;font-size:.78rem}
 nav .back:hover{color:var(--cyan)}
-
 .content{z-index:1;max-width:960px;margin:0 auto;padding:5rem 1.5rem 3rem}
 .header{text-align:center;margin-bottom:2.5rem}
 .header .icon{font-size:3rem;display:block;margin-bottom:.5rem}
@@ -31,11 +30,8 @@ nav .back:hover{color:var(--cyan)}
 .header .tags span{font-size:.68rem;padding:.2rem .7rem;border-radius:12px;font-family:var(--mono)}
 .t-boom{color:var(--amber);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2)}
 .t-patent{color:var(--pink);background:rgba(236,72,153,.1);border:1px solid rgba(236,72,153,.2)}
-
 .concept-box{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:1.5rem;margin-bottom:1.5rem;text-align:center}
 .concept-box h3{font-size:.7rem;color:var(--txtm);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem}
-.concept-box svg{max-width:100%;height:auto}
-
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:.8rem}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
 .mcard{background:var(--bg-card);border:1px solid var(--line);border-radius:14px;padding:1.2rem}
@@ -45,14 +41,6 @@ nav .back:hover{color:var(--cyan)}
 .mcard .sub{font-size:.68rem;color:var(--txtd);margin-top:.2rem}
 .mcard .txt{font-size:.74rem;color:var(--txtd);line-height:1.7}
 .mcard .txt b{color:var(--cyan);font-weight:600}
-
-.back-link{text-align:center;margin:2rem 0}
-.back-link a{color:var(--cyand);text-decoration:none;font-size:.85rem;font-family:var(--mono)}
-.back-link a:hover{color:var(--cyan)}
-
-.foot{z-index:1;text-align:center;padding:2rem;color:var(--txtm);font-size:.7rem;border-top:1px solid rgba(255,255,255,.03)}
-
-@media(max-width:768px){.grid3,.grid2{grid-template-columns:1fr 1fr}}
 .mockup{display:flex;justify-content:center;padding:1rem 0}
 .m-device{position:relative;display:inline-block}
 .m-body{background:linear-gradient(160deg,#1a2740,#0d1525);border:2px solid rgba(255,255,255,.06);border-radius:20px;padding:18px 22px;box-shadow:0 8px 40px rgba(0,180,255,.06)}
@@ -68,7 +56,6 @@ nav .back:hover{color:var(--cyan)}
 .m-grill span{display:block;width:16px;height:2px;background:rgba(255,255,255,.06);border-radius:1px}
 .m-knob{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#253550,#0d1525);border:2px solid rgba(255,255,255,.12);position:relative}
 .m-knob::after{content:"";position:absolute;top:5px;left:50%;width:2px;height:8px;background:var(--cyand);border-radius:1px}
-@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
 .comp-table{width:100%;border-collapse:collapse;font-size:.65rem}
 .comp-table td,.comp-table th{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.04);text-align:center}
 .comp-table th{color:var(--txtm);font-weight:400;font-size:.58rem}
@@ -83,6 +70,13 @@ nav .back:hover{color:var(--cyan)}
 .ro-step{display:flex;align-items:center;gap:8px;margin:4px 0}
 .ro-step .dot{width:8px;height:8px;border-radius:50%;background:var(--cyand);flex-shrink:0}
 .ro-step .txt{font-size:.65rem;color:var(--txtd)}
+.back-link{text-align:center;margin:2rem 0}
+.back-link a{color:var(--cyand);text-decoration:none;font-size:.85rem;font-family:var(--mono)}
+.back-link a:hover{color:var(--cyan)}
+.foot{z-index:1;text-align:center;padding:2rem;color:var(--txtm);font-size:.7rem;border-top:1px solid rgba(255,255,255,.03)}
+@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+@keyframes pulse2{0%,100%{opacity:.3}50%{opacity:1}}
+@media(max-width:768px){.grid3,.grid2{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -93,417 +87,71 @@ nav .back:hover{color:var(--cyan)}
 </nav>
 <div class="content" id="detail"></div>
 <footer class="foot"><p>Product Lab &middot; <a href="index.html" style="color:var(--cyand)">查看全部方案</a> &middot; &copy; 2025</p></footer>
-
 <script>
-var S = {
-  decibel: {
-    icon:'🔉', name:'迷你数字分贝仪', tagline:'口袋噪声计 · OLED 实时显示 + emoji 情绪反馈 + 婴儿安全模式',
-    tags:['boom','patent'], bom:32, price:129, profit:6415, margin:'50%',
-    users:'新手父母（婴儿房噪声监控）· Airbnb 房东 · 办公室噪音 · 音乐会爱好者 · 耳鸣患者',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body"><div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">🟢<span style="font-size:.55rem;color:var(--txtm)">REC</span></div><div class="m-screen"><div class="glow-reflect"></div><div style="display:flex;align-items:center;justify-content:center;gap:16px"><div style="text-align:center"><div style="font-size:42px;font-weight:800;color:#00d4ff;font-family:monospace;line-height:1">52.3</div><div style="font-size:10px;color:#64748b;font-family:monospace">dB(A)</div></div><div style="font-size:36px">😊</div></div><div style="display:flex;align-items:flex-end;gap:3px;height:24px;margin-top:8px"><div style="width:8px;height:30%;background:#10b981;border-radius:2px"></div><div style="width:8px;height:50%;background:#10b981;border-radius:2px"></div><div style="width:8px;height:35%;background:#f59e0b;border-radius:2px"></div><div style="width:8px;height:60%;background:#f59e0b;border-radius:2px"></div><div style="width:8px;height:45%;background:#f59e0b;border-radius:2px"></div><div style="width:8px;height:25%;background:#10b981;border-radius:2px"></div><div style="width:8px;height:40%;background:#f59e0b;border-radius:2px"></div><div style="width:8px;height:55%;background:#f59e0b;border-radius:2px"></div></div></div><div class="m-grill"><span></span><span></span><span></span><span></span><span></span><span></span></div><div style="display:flex;justify-content:space-between;align-items:center"><div class="m-led green"></div><span class="m-btn accent">HOLD</span><span class="m-btn">MAX</span><div style="font-size:.6rem;color:var(--txtm)">Type-C</div></div></div><div class="m-label">MEMS 麦克风 · OLED 128×64 · 60g · 口袋大小</div></div></div>',
-    usp:'<b>① emoji 情绪化显示：</b>OLED 屏幕根据噪音等级显示 😊→😐→😡，一看就懂，极强传播性<br><b>② 婴儿安全模式：</b>超过 50dB 自动红灯警告，新手父母的刚需工具<br><b>③ 夜间峰值记忆：</b>自动存储通宵最高分贝值，次日清晨查看昨夜噪声曲线',
-    comp:'<b>BAFX Products</b> — Amazon Best Seller · 5K+ reviews · $19.99<br><b>Tadeto</b> — 3K+ reviews · $16.99<br><b>RISEPRO</b> — 2K+ reviews · $15.99<br>AliExpress 同类 ¥30-60，月销数千<br><b>竞品弱点：</b>所有竞品都是"数字显示+条形柱"的冷冰冰界面，没有情绪化交互',
-    ai:'固件（ADC 音频采样 + A/C 加权滤波器 + 峰值保持算法 + 自动校准）· PCB 模拟前端降噪布局 · 外壳声学口设计 · 品牌包装与产品文案',
-    patent:'<b>发明方向：</b>一种基于情绪化图形反馈的环境噪声监测及分级预警方法<br><b>实用新型：</b>一种带婴儿模式与夜间峰值记忆的便携式噪声监测装置<br><b>新颖点：</b>将分贝值映射为人类可识别表情符号 + 自适应阈值算法',
-    risk:'<b>低</b> — 多场景需求支撑，电子设计成熟。主要技术挑战为工厂校准（可由 AI 编写自动校准固件解决）。竞品众多但无一具备情绪化反馈功能，差异化明确',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>BAFX</th><th>Tadeto</th></tr><tr><td>屏幕</td><td class="win">OLED彩色</td><td>TN黑白</td><td>TN黑白</td></tr><tr><td>表情反馈</td><td class="win">😊😐😡</td><td>无</td><td>无</td></tr><tr><td>婴儿模式</td><td class="win">50dB阈值</td><td>无</td><td>无</td></tr><tr><td>夜间记忆</td><td class="win">有</td><td>无</td><td>无</td></tr><tr><td>续航</td><td class="win">7天</td><td>3天</td><td>2天</td></tr></table>',
-  size:'约 85×35×12mm · 比打火机略大 · 60g',
-  why:'<div class="why-item">🎯 <b>唯一带婴儿模式的分贝仪</b> — 新手父母的刚需</div><div class="why-item">📸 <b>天然传播素材</b> — emoji变化极易拍视频分享</div><div class="why-item">🔋 <b>7天续航</b> — 是竞品的2-3倍</div>',
-  pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥129 去向</div><div class="waterfall"><span class="wf-bom" style="width:25%">BOM ¥32</span><span class="wf-make" style="width:12%">组装 ¥15</span><span class="wf-ship" style="width:8%">物流 ¥10</span><span class="wf-fee" style="width:15%">佣金 ¥19</span><span class="wf-profit" style="width:40%">利润 ¥53</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,300 · 利润率 41%</div>',
-  gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — Amazon Vine 送出30套换评价</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2-3周</b> — 母婴博主/KOL 种草视频（婴儿模式是天然素材）</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — 投放 Amazon PPC 关键词"baby noise monitor"</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第8周</b> — 目标月销 200+ 套，启动第二批 500 套</div></div>',
-  persona:'<div class="persona"><div class="avatar" style="background:rgba(236,72,153,.15)">👩‍🍼</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">28岁新手妈妈 · 宝宝3个月 · 每天焦虑"外面太吵会不会影响宝宝睡眠" · 愿意为任何能给她安心感的产品买单</div></div>'
-  },
-  posture: {
-    icon:'🧘', name:'智能姿态提醒器', tagline:'不用 App、不用手机——夹衣领上，驼背就温柔振动提醒',
-    tags:['boom','patent'], bom:25.5, price:119, profit:6215, margin:'52%',
-    users:'久坐白领 · 远程办公族 · 学生（网课/刷题）· 颈椎腰椎不适人群 · 送给"整天坐着"的礼物',
-    mockup:'<div class="mockup"><div style="display:flex;gap:30px;align-items:center"><div class="m-device"><div class="m-body" style="width:90px;padding:12px;border-radius:14px"><div style="display:flex;justify-content:center;margin-bottom:8px"><div class="m-led green"></div></div><div style="text-align:center;font-size:10px;color:var(--cyan);font-family:monospace;font-weight:600;margin-bottom:6px">15g</div><div style="text-align:center"><span class="m-btn accent" style="font-size:.5rem">校准</span></div></div><div class="m-label">微型夹子 · 别衣领</div></div><div style="flex:1;max-width:280px"><div style="background:rgba(12,20,35,.8);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:8px">🧘</div><div style="font-size:.68rem;color:var(--txtd);line-height:1.6">无需 App · 开机即用<br>倾斜超过 15° 振动提醒<br>自适应学习你的姿势习惯</div><div style="display:flex;gap:10px;justify-content:center;margin-top:10px"><div class="m-led green"></div><div class="m-led amber"></div><div class="m-led" style="background:#64748b"></div></div></div></div></div></div>',
-    usp:'<b>① 零 App 依赖：</b>99% 竞品要蓝牙配手机 App——这个开机即用，夹上就好<br><b>② 自适应提醒节奏：</b>不是你每 5 分钟叫一次——它学习你的姿势习惯，只在真正需要时轻轻振动<br><b>③ 无感佩戴：</b>仅 15g，夹衣领内侧完全隐形，开会/上课都不尴尬',
-    comp:'<b>Upright GO 2</b> — 高端 · $59.99 · 2K reviews · 但强制依赖手机 App！<br><b>BackBridge</b> — $19.99 · 500 reviews<br>淘宝大量 ¥25-60 山寨款<br><b>关键弱点：所有竞品都需要蓝牙配 App！</b>纯独立硬件市场几乎空白',
-    ai:'固件（加速度计姿态向量追踪 + 自适应基线校准 + 振动模式生成 + 超低功耗休眠）· 超微型 PCB 布局（15mm×25mm）· 夹子外壳设计 · 健康礼品包装',
-    patent:'<b>发明方向：</b>一种无需外部设备的独立穿戴式姿态监测及自适应提醒方法<br><b>实用新型：</b>一种免 App 的微型防驼背振动提醒装置<br><b>新颖点：</b>完全脱离手机的独立自校准算法，与 Upright GO 形成明确技术代差',
-    risk:'<b>低-中</b> — 远程办公趋势推动需求持续增长。功效争议需注意：定位"工具非疗法"。BOM 仅 ¥25.5 且无 App 开发成本，试错风险极低',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Upright GO</th><th>BackBridge</th></tr><tr><td>需要App</td><td class="win">零依赖</td><td>必须连</td><td>必须连</td></tr><tr><td>重量</td><td class="win">15g</td><td>20g</td><td>25g</td></tr><tr><td>自适应</td><td class="win">AI学习</td><td>无</td><td>无</td></tr><tr><td>续航</td><td class="win">7天</td><td>2天</td><td>3天</td></tr></table>',
-  size:'15×25×8mm · 指甲盖大小 · 15g',
-  why:'<div class="why-item">🔓 <b>唯一不需要手机的</b> — 夹上就用，老人小孩都会</div><div class="why-item">🧠 <b>越用越聪明</b> — 自适应学习你的姿势习惯</div><div class="why-item">🎁 <b>完美礼物</b> — 送"整天坐着"的人</div>',
-  pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥119 去向</div><div class="waterfall"><span class="wf-bom" style="width:21%">BOM ¥25.5</span><span class="wf-make" style="width:10%">组装 ¥12</span><span class="wf-ship" style="width:7%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥18</span><span class="wf-profit" style="width:47%">利润 ¥55.5</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,550 · 利润率 47%</div>',
-  gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — TikTok/小红书"上班族神器"开箱视频</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 健康/办公类 KOL 评测 vs Upright GO</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — 礼品季推广（父亲节/教师节）</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第6周</b> — Amazon "posture corrector" 关键词广告</div></div>',
-  persona:'<div class="persona"><div class="avatar" style="background:rgba(0,212,255,.12)">👨‍💻</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">35岁程序员 · 每天坐10小时 · 腰疼3年了 · 试过 App 版但嫌连手机太麻烦放弃了 · 愿意花 ¥119 试一个真正"无感"的方案</div></div>'
-  },
-  angle: {
-    icon:'📐', name:'迷你数字角度仪', tagline:'3 颗钕磁铁强力吸附 · OLED 仿真气泡动画 · 蜂鸣 0/45/90°',
-    tags:['patent'], bom:35, price:129, profit:5965, margin:'46%',
-    users:'木工 · 铣床工 · 磨刀/磨钻头玩家 · 3D 打印机调平 · RC 模型拼装',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:260px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:.55rem;color:var(--txtm)">▸ ANGLE</span><div class="m-led green"></div></div><div class="m-screen"><div class="glow-reflect"></div><div style="text-align:center"><div style="font-size:42px;font-weight:800;color:#00d4ff;font-family:monospace">45.0<span style="font-size:20px">°</span></div><div style="display:flex;align-items:center;justify-content:center;gap:4px;margin:6px 0"><div style="width:60px;height:4px;background:rgba(0,212,255,.2);border-radius:2px;position:relative"><div style="position:absolute;left:50%;top:-3px;width:8px;height:10px;background:#00d4ff;border-radius:2px"></div></div></div><div style="font-size:9px;color:#64748b;font-family:monospace">BEEP ⏻ 0° · 45° · 90°</div></div></div><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px"><span class="m-btn">ZERO</span><span class="m-btn accent">HOLD</span><div class="m-knob"></div></div></div><div class="m-label">3×钕磁铁 · MPU6050 · CNC铝底座 · 5kg拉脱力</div></div></div>',
-    usp:'<b>① 音频反馈：</b>到 0°/45°/90° 蜂鸣器"滴"一声——你不用看屏幕就知道调到位了，竞品无一具备<br><b>② OLED 仿真气泡水平仪：</b>屏幕动态模拟传统气泡水平管的摆动动画，老木工一眼看懂<br><b>③ 工业级磁吸底座：</b>3 颗钕磁铁，5kg 拉脱力，任意金属表面牢固吸附',
-    comp:'<b>Wixey WR300</b> — 高端 · $39.99 · 2K reviews<br><b>Klein Tools 935DAG</b> — $29.97 · 1K reviews<br><b>GemRed</b> — $19.99 · 500 reviews<br>AliExpress 杂牌 ¥35-80<br>利基品类但用户忠诚度极高，木工圈口碑相传',
-    ai:'固件（MPU6050 6 轴传感器 I2C + 互补滤波角度融合 + 蜂鸣触发逻辑）· 紧凑 PCB 布局 · CNC 铝底座设计 · 工具品牌包装',
-    patent:'<b>发明方向：</b>一种基于音频反馈的数字水平校准方法及装置<br><b>实用新型：</b>一种带音频播报功能的磁吸式便携数字角度仪<br><b>新颖点：</b>音频+视觉+磁吸三合一交互在工具品类中无先例',
-    risk:'<b>低-中</b> — 利基市场总盘子小于消费电子，但精准用户在工具上花钱不手软。建议同时走五金专业渠道 + Amazon，品牌化后可卖给大厂',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Wixey</th><th>Klein</th></tr><tr><td>音频反馈</td><td class="win">蜂鸣</td><td>无</td><td>无</td></tr><tr><td>气泡动画</td><td class="win">OLED仿真</td><td>LCD数字</td><td>LCD数字</td></tr><tr><td>磁吸</td><td class="win">3磁铁 5kg</td><td>2磁铁</td><td>2磁铁</td></tr><tr><td>售价</td><td class="win">¥129</td><td>¥285</td><td>¥214</td></tr></table>',
-  size:'72×40×18mm · 火柴盒大小 · 80g',
-  why:'<div class="why-item">🔊 <b>不用看屏幕就知道角度</b> — 蜂鸣到点即响</div><div class="why-item">💪 <b>5kg磁吸力</b> — 是竞品的2倍</div><div class="why-item">💰 <b>只要Wixey一半的价钱</b> — 129 vs 285</div>',
-  pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥129 去向</div><div class="waterfall"><span class="wf-bom" style="width:27%">BOM ¥35</span><span class="wf-make" style="width:12%">组装 ¥15</span><span class="wf-ship" style="width:8%">物流 ¥10</span><span class="wf-fee" style="width:15%">佣金 ¥19</span><span class="wf-profit" style="width:38%">利润 ¥50</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,000 · 利润率 39%</div>',
-  gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 木工论坛/YouTube 木工频道送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 发布对比视频 "Wixey vs EldCare 盲测"</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — Amazon 工具类目 + 木工杂志推荐</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第8周</b> — 目标月销 100+，启动五金店渠道</div></div>',
-  persona:'<div class="persona"><div class="avatar" style="background:rgba(245,158,11,.12)">🪚</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">52岁木工手艺爱好者 · 周末在车库做家具 · 对工具精度极其苛刻 · 愿意花 ¥1,000+买一把好刨子但觉得 Wixey ¥285 "不值"</div></div>'
-  },
-  'dog-collar': {
-    icon:'🐕', name:'LED 宠物夜光项圈', tagline:'USB-C 充电 · RGB 随运动节奏律动 · 遥控找狗强闪模式',
-    tags:['boom'], bom:29, price:99, profit:4115, margin:'42%',
-    users:'每天早晚遛狗人群 · 深色毛犬主（黑狗/棕狗晚上看不见）· 郊区/农村宠物主 · 圣诞/万圣节宠物礼品',
-    mockup:'<div class="mockup"><div style="display:flex;flex-direction:column;align-items:center"><div style="position:relative;width:300px;height:40px;background:linear-gradient(90deg,rgba(245,158,11,.08),rgba(245,158,11,.2),rgba(245,158,11,.08));border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px"><span style="display:block;width:10px;height:10px;border-radius:50%;background:#f59e0b;box-shadow:0 0 10px #f59e0b;animation:pulse 1.2s ease infinite"></span><span style="display:block;width:10px;height:10px;border-radius:50%;background:#f59e0b;box-shadow:0 0 12px #f59e0b;animation:pulse 1.2s ease .2s infinite"></span><span style="display:block;width:10px;height:10px;border-radius:50%;background:#f59e0b;box-shadow:0 0 14px #f59e0b;animation:pulse 1.2s ease .4s infinite"></span><span style="display:block;width:10px;height:10px;border-radius:50%;background:#f59e0b;box-shadow:0 0 12px #f59e0b;animation:pulse 1.2s ease .6s infinite"></span><span style="display:block;width:10px;height:10px;border-radius:50%;background:#f59e0b;box-shadow:0 0 10px #f59e0b;animation:pulse 1.2s ease .8s infinite"></span></div><div style="display:flex;gap:30px;align-items:center;margin-top:16px"><div style="text-align:center;font-size:.6rem;color:var(--txtm)"><div style="font-size:1.4rem;margin-bottom:4px">🐕</div>振动传感器<br>检测运动强度</div><div style="width:40px;height:40px;border-radius:50%;background:rgba(0,212,255,.08);border:2px solid rgba(0,212,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.2rem">🔘</div><div style="text-align:center;font-size:.6rem;color:var(--txtm)"><div style="font-size:1.4rem;margin-bottom:4px">🔋</div>USB-C 充电<br>续航 8 小时</div></div></div></div>' ,
-    usp:'<b>① 随运动节奏律动：</b>内置振动传感器——狗跑起来灯闪加快，安静时缓慢呼吸光效，极易拍短视频传播<br><b>② 找狗模式：</b>配小遥控器，按下后项圈强闪白光——夜里找狗无敌功能<br><b>③ USB-C 充电：</b>多数竞品还用纽扣电池，这个续航 8 小时一充，告别换电池',
-    comp:'<b>Nite Ize NiteDog</b> — $19.99 · 3K reviews<br><b>Illumiseen</b> — $14.99 · 2K reviews · USB 充电<br><b>BSEEN</b> — $9.99 · 5K reviews · 纽扣电池（非可充电）',
-    ai:'固件（RGB LED 动画引擎 + 振动传感器运动检测 + 2.4G 遥控配对 + 锂电池充电管理）· 柔性/硬质 PCB 设计 · IP65 防水电子舱 · 宠物品牌视觉包装',
-    patent:'<b>实用新型方向：</b>一种可感测宠物运动强度并自适应调节发光效果的智能项圈。专利点较弱，主要依靠品牌和渠道',
-    risk:'<b>中</b> — 尺码退还是主要问题。方案：通用可调尺寸（35-65cm）+ 详细尺码图。情绪购买属性极强，社交媒体平台天然传播素材',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>NiteDog</th><th>BSEEN</th></tr><tr><td>充电方式</td><td class="win">USB-C 充电</td><td>纽扣电池</td><td>纽扣电池</td></tr><tr><td>运动感应</td><td class="win">✅ 随运动律动</td><td>❌</td><td>❌</td></tr><tr><td>找狗模式</td><td class="win">✅ 遥控强闪</td><td>❌</td><td>❌</td></tr><tr><td>续航</td><td class="win">8小时</td><td>20小时</td><td>30小时</td></tr></table>',
-  size:'项圈 35-65cm 可调 · 电子模块 40×18mm · 45g',
-  why:'<div class="why-item">🏃 <b>唯一能感知运动的项圈</b> — 狗跑起来灯光自动加快</div><div class="why-item">🔦 <b>找狗模式</b> — 夜里一键强闪白光，秒找到</div><div class="why-item">🔌 <b>告别买电池</b> — USB-C充电，一年省下几十节纽扣电池</div>'
-  },
-  solder: {
-    icon:'🔧', name:'迷你 T12 焊台', tagline:'手机大小 · Type-C PD 20V 直接供电 · OLED 实时显示 + 旋钮精准控温',
-    tags:['patent'], bom:33, price:99, profit:4800, margin:'42%',
-    users:'电子 DIY 玩家 · 大学电子社团/实验室 · 上门维修师傅 · 嵌入式开发者',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:200px;text-align:center"><div class="m-screen" style="display:inline-block;min-width:140px"><div class="glow-reflect"></div><div style="font-size:34px;font-weight:800;color:#f59e0b;font-family:monospace">320<span style="font-size:16px">°C</span></div><div style="display:flex;align-items:flex-end;gap:2px;height:16px;justify-content:center;margin:6px 0"><div style="width:6px;height:100%;background:#f59e0b;border-radius:1px"></div><div style="width:6px;height:75%;background:rgba(245,158,11,.4);border-radius:1px"></div></div><div style="font-size:8px;color:#64748b;font-family:monospace">T12 · PID · SET: 340°</div></div><div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-top:10px"><div class="m-knob" style="width:34px;height:34px"></div><div><span class="m-btn accent" style="display:block;margin-bottom:4px">PD 20V</span><span style="font-size:.55rem;color:var(--txtm)">65×45×22mm</span></div></div></div><div class="m-label">Type-C PD 供电 · PID 温控 · 口袋大小</div></div></div>',
-    usp:'<b>① 真·手机大小：</b>65×45×22mm，放到口袋里就走——竞品 TS100 都嫌大<br><b>② Type-C PD 供电：</b>直接用手机充电头或充电宝，不需要带专用电源<br><b>③ 开源固件：</b>AI 生成的 PID 温控固件开源，吸引社区共建形成壁垒',
-    comp:'<b>TS100/TS101</b> — ¥168-268 · 知名品牌<br><b>深圳白光 BK950D</b> — ¥68<br>淘宝杂牌 T12 一体手柄 ¥45-80<br>用户群小而精，购买力强且对品质极度敏感',
-    ai:'固件（PID 温控算法 + K 型热电偶冷端补偿 + USB PD 协议握手 + OLED 菜单 UI）· 功率级 PCB（注意 MOS 管散热和走线）· 便携外壳设计 · 详细产品说明书',
-    patent:'<b>发明方向：</b>一种基于 USB PD 协议的便携式可编程温控焊接工具<br><b>实用新型：</b>一种集成 Type-C PD 供电的掌上式智能焊台<br><b>新颖点：</b>PD 供电 + 迷你化 + 开源固件的组合具备创新性',
-    risk:'<b>中</b> — 功率级 PCB 需额外注意散热设计和走线宽度。售后略多于纯消费电子。但用户群体技术性强，自己能排查很多问题',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>TS100</th><th>白光BK950</th></tr><tr><td>供电</td><td class="win">Type-C PD 20V</td><td>DC 5525</td><td>AC 220V</td></tr><tr><td>尺寸</td><td class="win">65×45×22</td><td>170×16</td><td>120×80×40</td></tr><tr><td>开源</td><td class="win">✅ 社区共建</td><td>✅</td><td>❌</td></tr><tr><td>售价</td><td class="win">¥99</td><td>¥168-268</td><td>¥68</td></tr></table>',
-  size:'65×45×22mm · 比银行卡还小 · 85g',
-  why:'<div class="why-item">👜 <b>真口袋大小</b> — 放口袋就走，上门维修神器</div><div class="why-item">🔌 <b>手机充电头就能用</b> — 不用带笨重电源</div><div class="why-item">🐛 <b>开源固件</b> — 社区持续优化，功能越来越多</div>'
-  },
-  thermo: {
-    icon:'🍔', name:'2 秒速测烧烤温度计', tagline:'折叠探针 · OLED 温度迷你折线图 · 磁吸贴烤炉不占手',
-    tags:['boom'], bom:30.5, price:89, profit:3215, margin:'36%',
-    users:'BBQ 爱好者（欧美第一大户外烹饪活动！）· 家庭烘焙党 · 牛排硬核玩家 · 婴儿辅食控温',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:240px;text-align:center"><div class="m-screen" style="display:inline-block;min-width:160px"><div class="glow-reflect"></div><div style="font-size:34px;font-weight:800;color:#f59e0b;font-family:monospace">135<span style="font-size:16px">°F</span></div><svg width="140" height="24" style="margin:6px 0"><polyline points="5,20 25,14 45,16 65,8 85,12 105,6 130,6" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="130" cy="6" r="3" fill="#00d4ff"/></svg><div style="font-size:8px;color:#64748b;font-family:monospace">TARGET: 145°F · MEDIUM RARE</div></div><div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-top:10px"><span class="m-btn accent">HOLD</span><span class="m-btn">°C/°F</span></div></div><div class="m-label">MAX6675 热电偶 · 2秒速测 · 磁吸背板 · IP65</div></div></div>',
-    usp:'<b>① 温度迷你折线图：</b>OLED 显示最近 30 秒温度变化曲线——牛排何时"plateau"一目了然，竞品全是纯数字<br><b>② 磁吸背板：</b>直接贴烤炉/烤箱/冰箱门，不占手，多数竞品无此功能<br><b>③ 5 种肉类预设：</b>Rare → Medium Rare → Medium → Medium Well → Well Done，到达目标温度自动蜂鸣提醒',
-    comp:'<b>ThermoPro TP19H</b> — Amazon 霸主 · 25K+ reviews · $19.99 · 月销 10K+<br><b>Alpha Grillers</b> — 15K reviews · $15.99<br><b>KIZEN</b> — 10K reviews · $12.97<br>市场极其巨大——BBQ 是美国第一大户外烹饪活动',
-    ai:'固件（MAX6675 热电偶 ADC + 冷端补偿 + 温度曲线 FIFO 缓存 + 磁吸检测 + 休眠算法）· 超薄折叠 PCB · 食品级不锈钢探针 · BBQ 文化品牌包装',
-    patent:'<b>实用新型方向：</b>一种带温度实时曲线显示功能的折叠式食品温度计。专利点较弱，主要依靠功能差异化',
-    risk:'<b>低-中</b> — ThermoPro 品牌优势极强。靠 Amazon Vine 冷启动获取第一批评价 + 温度折线图功能差异化。BBQ 社区是极度热情的圈子，口碑传播非常快',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>ThermoPro</th><th>Alpha G.</th></tr><tr><td>温度曲线</td><td class="win">✅ 折线图</td><td>❌ 纯数字</td><td>❌ 纯数字</td></tr><tr><td>磁吸</td><td class="win">✅</td><td>❌</td><td>❌</td></tr><tr><td>肉类预设</td><td class="win">5种</td><td>无</td><td>无</td></tr><tr><td>售价</td><td class="win">¥89</td><td>¥142</td><td>¥114</td></tr></table>',
-  size:'折叠后 150×25mm · 展开 280mm · 65g',
-  why:'<div class="why-item">📈 <b>唯一带温度曲线图的</b> — 牛排何时翻面一目了然</div><div class="why-item">🧲 <b>磁吸贴烤炉</b> — 不占手，ThermoPro做不到</div><div class="why-item">🥩 <b>5种肉类一键预设</b> — 新手也能烤出完美熟度</div>'
-  },
-  powermeter: {
-    icon:'⚡', name:'USB 迷你功率计', tagline:'Type-C 公母直插 · 0.96" OLED 四合一显示 · V/A/W/mAh',
-    tags:['boom','patent'], bom:21.5, price:59, profit:3000, margin:'44%',
-    users:'充电头玩家（快充协议检测）· 数码博主 · 极客 · 电池容量测试 · 太阳能板输出监测',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:220px"><div style="display:flex;justify-content:center;gap:8px;margin-bottom:8px"><span class="m-led green"></span><span class="m-led amber"></span></div><div class="m-screen"><div class="glow-reflect"></div><div style="display:flex;gap:16px;justify-content:center"><div style="text-align:center"><div style="font-size:10px;color:#64748b;font-family:monospace">VOLT</div><div style="font-size:22px;font-weight:700;color:#00d4ff;font-family:monospace">5.12<span style="font-size:12px">V</span></div></div><div style="text-align:center"><div style="font-size:10px;color:#64748b;font-family:monospace">CURR</div><div style="font-size:22px;font-weight:700;color:#f59e0b;font-family:monospace">2.41<span style="font-size:12px">A</span></div></div></div><div style="display:flex;gap:16px;justify-content:center;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.04)"><div style="text-align:center"><div style="font-size:8px;color:#64748b;font-family:monospace">POWER</div><div style="font-size:14px;font-weight:600;color:var(--txt);font-family:monospace">12.3W</div></div><div style="text-align:center"><div style="font-size:8px;color:#64748b;font-family:monospace">MAH</div><div style="font-size:14px;font-weight:600;color:var(--txt);font-family:monospace">1847</div></div></div></div></div><div class="m-label">铝合金外壳 · 22×12mm · INA219 · OLED 128×64</div></div></div>',
-    usp:'<b>① 高颜值品牌化：</b>铝合金阳极氧化外壳 + 激光 Logo——竞品全是裸 PCB 或廉价塑料壳，凭颜值就能打<br><b>② 真彩 OLED 四屏切换：</b>128×64 全彩显示，比竞品的单色 TN 屏精致太多<br><b>③ 双口统计：</b>同时记录 V/A/W 的 min/max/avg + 累计通过电量 mAh，竞品只能看实时值',
-    comp:'<b>维简 C 口功率计</b> — 淘宝头部 · 月销 2K+ · ¥29-49 · 无品牌<br><b>FNIRSI</b> — ¥39-69<br>AliExpress 杂牌 ¥15-25<br>市场成熟但全部是白牌，没有任何品牌化产品！',
-    ai:'固件（INA219 I²C 电流采样 + OLED 四屏切换 UI + 累计电量 EEPROM 存储）· 超小双面 PCB 布局（22×12mm）· 铝合金 CNC 外壳 · 数码品牌全套视觉',
-    patent:'<b>实用新型方向：</b>一种直插式双面 OLED 显示的 USB 功率及累计电量监测装置<br><b>新颖点：</b>双面 OLED 嵌入 + 累计电量统计功能具备一定新颖性',
-    risk:'<b>中</b> — 标品竞争激烈，维简/FNIRSI 有一定忠实用户。靠颜值 + 品牌化 + 铝合金外壳打出差异化。BOM 最低仅 ¥21.5，试错成本极低',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>维简</th><th>FNIRSI</th></tr><tr><td>显示</td><td class="win">OLED 彩色</td><td>TN 黑白</td><td>LED 数码管</td></tr><tr><td>外壳</td><td class="win">铝合金</td><td>裸PCB</td><td>塑料</td></tr><tr><td>电量统计</td><td class="win">✅ mAh累计</td><td>❌</td><td>❌</td></tr><tr><td>售价</td><td class="win">¥59</td><td>¥29-49</td><td>¥39-69</td></tr></table>',
-  size:'22×12×6mm · 比指甲盖还小 · 5g',
-  why:'<div class="why-item">✨ <b>铝合金外壳</b> — 竞品全是裸板或廉价塑料</div><div class="why-item">📊 <b>累计电量功能</b> — 唯一能记录 mAh 的功率计</div><div class="why-item">🎨 <b>全彩OLED屏</b> — 信息密度是竞品TN屏的4倍</div>'
-  },
-  'eink-clock': {
-    icon:'🕳️', name:'E-Ink 桌面温湿度时钟', tagline:'超市价签同款墨水屏 · 护眼零蓝光 · 纽扣电池续航半年',
-    tags:['boom'], bom:26, price:79, profit:3400, margin:'43%',
-    users:'程序员桌面 · 极简主义者 · 卧室/婴儿房（无蓝光，不影响睡眠）· 摄影棚/酒窖温湿度监控',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:240px;text-align:center;background:linear-gradient(160deg,#f5f0e8,#e8e0d5)"><div style="background:#e8e0d5;border-radius:8px;padding:20px 24px;display:inline-block;border:1px solid rgba(0,0,0,.06)"><div style="font-size:38px;font-weight:300;color:#1a1a1a;font-family:monospace;letter-spacing:2px">14:28</div><div style="display:flex;justify-content:center;gap:20px;margin-top:4px"><span style="font-size:11px;color:#666;font-family:monospace">23°C</span><span style="font-size:11px;color:#666;font-family:monospace">52%</span></div></div><div style="text-align:center;margin-top:8px"><span style="font-size:.55rem;color:#999;font-family:monospace">E-Ink 墨水屏 · 31.2mm · CR2032×2 · 180天</span></div></div></div></div>',
-    usp:'<b>① 真·半年续航：</b>不用充电、不用插线——两节 CR2032 用 180 天，彻底告别充电焦虑<br><b>② 护眼零蓝光：</b>E-Ink 墨水屏靠环境光反射，不发光不伤眼，放床头完美<br><b>③ 极简高颜值：</b>日系无印良品风格设计，放在桌面上像艺术品不像工具',
-    comp:'<b>小米温湿度计 2</b> — ¥29 · 蓝牙版需手机看数据<br>淘宝 E-Ink 桌面钟 ¥39-89<br>品类偏小众但用户粘性极高，E-Ink 爱好者圈层忠诚',
-    ai:'固件（E-Ink 局部刷新驱动 + HTU21D/SHT30 传感器 I²C 读取 + RTC 时钟 + 超低功耗 μA 级休眠）· 极简外壳设计 · 日系/北欧风品牌包装',
-    patent:'无显著可专利点。注意 E-Ink 屏货源稳定性——建议采用 Waveshare 或 Good Display 正规渠道模组，避免依赖超市价签拆机件',
-    risk:'<b>低</b> — 电子设计极其简单，几乎零售后。主要风险为 E-Ink 屏供应链。建议首发即确认稳定供货渠道',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>小米温湿计2</th><th>淘宝E-Ink钟</th></tr><tr><td>屏幕</td><td class="win">E-Ink 墨水屏</td><td>LCD</td><td>E-Ink</td></tr><tr><td>续航</td><td class="win">180天</td><td>365天</td><td>90天</td></tr><tr><td>需要手机</td><td class="win">❌ 独立</td><td>✅ 蓝牙</td><td>❌ 独立</td></tr><tr><td>售价</td><td class="win">¥79</td><td>¥29</td><td>¥39-89</td></tr></table>',
-  size:'80×35×12mm · 名片大小 · 40g',
-  why:'<div class="why-item">😴 <b>零蓝光</b> — 放床头不影响褪黑素分泌</div><div class="why-item">🔋 <b>半年不管它</b> — 两节纽扣电池用180天</div><div class="why-item">🎌 <b>日系极简美学</b> — 放桌上像艺术品不像工具</div>'
-  },
-  luggage: {
-    icon:'🛗', name:'迷你数字行李秤', tagline:'预置 20+ 航司免费行李限额 · 超重红绿 LED 一眼判断',
-    tags:['patent'], bom:25, price:69, profit:2265, margin:'33%',
-    users:'国际旅客 · 留学生 · 廉航常客 · 代购族 · 出差族',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:200px;text-align:center"><div class="m-screen" style="display:inline-block;min-width:140px"><div class="glow-reflect"></div><div style="font-size:32px;font-weight:800;color:#00d4ff;font-family:monospace">18.6<span style="font-size:16px">kg</span></div><div style="display:flex;justify-content:center;align-items:center;gap:10px;margin:8px 0"><div class="m-led green" style="width:10px;height:10px"></div><span style="font-size:10px;color:#10b981;font-family:monospace">OK</span><span style="font-size:8px;color:#64748b">国航 23kg</span></div></div><div style="display:flex;justify-content:center;gap:8px;margin-top:8px"><span class="m-btn accent">UNIT</span><span class="m-btn">AIRLINE</span></div></div><div class="m-label">50kg 压力传感器 · HX711 ADC · 内置 20+ 航司数据</div></div></div>',
-    usp:'<b>① 航司限额预置：</b>内置 20+ 主流航司免费行李限额数据——称重后红绿 LED 直接告诉你超没超，竞品全是纯数字显示<br><b>② 超重躲不掉：</b>超出航司限额时屏幕闪烁 + 蜂鸣器报警，帮你当场做出取舍<br><b>③ 礼品化包装：</b>竞品清一色透明塑料袋裸包装——做成旅行礼品市场差异化巨大',
-    comp:'<b>Travel Inspira</b> — Amazon Best Seller · 4.8K reviews · $9.49<br><b>KINGON</b> — $24.79 · 带充电功能<br><b>Meilen</b> — 3.4K reviews · $14.24<br>AliExpress 通用款 ¥15-35，超大宗量——但全是"笨显示"',
-    ai:'固件（HX711 24-bit ADC 压力传感器读取 + kg/lb 单位切换 + 20+ 航司限额预设菜单 + 自动关机）· 人体工学手持外壳 · 旅行礼品品牌包装',
-    patent:'<b>实用新型：</b>一种预置航空行李限额数据并具备超重判断功能的便携式电子行李秤<br><b>新颖点：</b>航司限额预置 + LED 超重判断是真实差异化，所有已知竞品均无此功能',
-    risk:'<b>中</b> — 低价位段竞争极其血腥（AliExpress ¥15）。利润率仅 33%，需靠功能差异化 + 品牌溢价支撑 ¥69 价位，需要走量',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Travel Inspira</th><th>Meilen</th></tr><tr><td>航司限额</td><td class="win">✅ 20+航司</td><td>❌</td><td>❌</td></tr><tr><td>超重提示</td><td class="win">✅ 红绿LED</td><td>❌</td><td>❌</td></tr><tr><td>精度</td><td>±50g</td><td>±50g</td><td>±50g</td></tr><tr><td>售价</td><td class="win">¥69</td><td>¥68</td><td>¥102</td></tr></table>',
-  size:'120×45×28mm · 遥控器大小 · 90g',
-  why:'<div class="why-item">✈️ <b>唯一预置航司限额的行李秤</b> — 全球竞品都没有</div><div class="why-item">🟢🔴 <b>红绿灯一眼判断</b> — 不用算不用查，超重瞬间知道</div><div class="why-item">🎁 <b>旅行礼品定位</b> — 比竞品的裸包装体面太多</div>'
-  },
-  soil: {
-    icon:'🌱', name:'3 合 1 土壤检测仪', tagline:'湿度 · pH · 光照三合一 LCD · 拔出保留读数 · 笑脸健康指数',
-    tags:['boom'], bom:21.5, price:59, profit:1815, margin:'31%',
-    users:'室内绿植党（TikTok/小红书巨大流量）· 阳台种菜族 · 多肉爱好者 · 园艺新手',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:180px;text-align:center"><div class="m-screen" style="display:inline-block;min-width:120px;background:#d4e8c0"><div style="display:flex;justify-content:center;gap:20px;margin-bottom:6px"><div style="text-align:center"><div style="font-size:8px;color:#555;font-family:monospace">MOIST</div><div style="font-size:18px;font-weight:700;color:#2d6a1e;font-family:monospace">65%</div></div><div style="text-align:center"><div style="font-size:8px;color:#555;font-family:monospace">pH</div><div style="font-size:18px;font-weight:700;color:#2d6a1e;font-family:monospace">6.5</div></div></div><div style="text-align:center;font-size:28px;margin:4px 0">😊</div><div style="font-size:8px;color:#555;font-family:monospace">LIGHT: ☀ NORMAL</div></div><div style="display:flex;justify-content:center;align-items:center;gap:16px;margin-top:8px"><span class="m-btn accent">MODE</span><div class="m-led green"></div></div></div><div class="m-label">双不锈钢探针 · 拔出保留读数 · 纽扣电池</div></div></div>',
-    usp:'<b>① 拔出保留读数：</b>绝大多数检测仪拔出土壤后读数立刻消失——这个保留上次测量值，方便来回对比<br><b>② 植物开心指数：</b>综合湿度+pH+光照三个指标，给出一个 😊/😐/😢 笑脸——让"看不懂数据"的人也能一秒判断<br><b>③ 养护指南卡片：</b>包装附赠 20 种常见室内植物（龟背竹、琴叶榕、多肉等）的理想参数对照表',
-    comp:'<b>XLUX T10</b> — Amazon Best Seller · 10K+ reviews · $10.99 · 仅单功能湿度<br><b>Sonkir</b> — 8K+ reviews · $9.99<br><b>Atree</b> — 5K+ reviews · $9.99<br><b>Govee</b> — 蓝牙版 · $15.99<br>每 1-2 个新植物主人都买一个——市场极大且持续增长',
-    ai:'固件（不锈钢双探针 ADC 湿度采样 + pH 电极电位读取 + 光敏电阻 + 定制三读 LCD 驱动 + 自动关机）· 人体工学手柄外壳 · 植物主题品牌包装',
-    patent:'无显著可专利点。利润最薄（31%），需要走量。BOM 最低（¥21.5），是"先跑通流程再换高利润产品"的最佳试验品',
-    risk:'<b>低</b> — 市场验证最充分、电子设计最简单、BOM 最低。利润薄但绝对能卖。核心是靠"养护指南卡片"+"笑脸 emoji"打出与 ¥9.99 杂牌的差异',
-  compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>XLUX T10</th><th>Sonkir</th></tr><tr><td>测量项目</td><td class="win">湿度+pH+光照</td><td>仅湿度</td><td>湿度+pH+光照</td></tr><tr><td>保留读数</td><td class="win">✅</td><td>❌</td><td>❌</td></tr><tr><td>笑脸指数</td><td class="win">✅ 😊😐😢</td><td>❌</td><td>❌</td></tr><tr><td>售价</td><td>¥59</td><td>¥71</td><td>¥71</td></tr></table>',
-  size:'280×45mm · 笔一样长 · 55g',
-  
 
-  'pill-cap': {
-    icon:'💊', name:'智能药瓶计时盖', tagline:'替换标准药瓶盖 · LCD 显示上次开盖时间 · 定时蜂鸣提醒',
-    tags:['boom','patent'], bom:20, price:89, profit:4800, margin:'54%',
-    users:'长期服药老人 · 抗生素/止痛药定时用户 · 宠物喂药 · 慢性病患者',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:180px;text-align:center"><div class="m-screen" style="display:inline-block;background:#1a2a1a"><div style="font-size:28px;font-weight:700;color:#10b981;font-family:monospace">3.5h</div><div style="font-size:9px;color:#64748b;font-family:monospace;margin-top:2px">距上次服药</div><div style="display:flex;justify-content:center;gap:8px;margin-top:6px"><span class="m-btn accent" style="font-size:.5rem">NEXT 4h</span></div></div></div><div class="m-label">标准螺纹 · 适配大多数药瓶 · CR2032 · 1年续航</div></div></div>',
-    usp:'<b>① 上次开盖计时：</b>LCD 持续显示距上次服药时间——吃没吃过一眼就知<br><b>② 兼容标准药瓶：</b>替换原瓶盖即可，不需要专用药盒<br><b>③ 多时段提醒：</b>可设 2/4/6/8/12 小时间隔，到点蜂鸣提醒',
-    comp:'<b>TimerCap</b> — Amazon 401 reviews · $17.50/2pk<br>仅 82 个竞品 listing——竞争极薄',
-    ai:'固件（低功耗 RTC 计时 + 开盖磁感应检测 + LCD 驱动 + 蜂鸣提醒）· 标准螺纹兼容外壳',
-    patent:'<b>发明方向：</b>一种显示距上次开盖时间的智能药瓶替换盖<br><b>实用新型：</b>兼容标准药瓶的电子计时提醒瓶盖',
-    risk:'<b>低</b> — 电子简单，标准螺纹生产成熟。注意作为辅助工具而非医疗器械销售',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>TimerCap</th></tr><tr><td>显示方式</td><td class="win">LCD 实时</td><td>LED闪烁</td></tr><tr><td>多时段</td><td class="win">2/4/6/8/12h</td><td>固定</td></tr></table>',
-    size:'直径 35mm · 高度 28mm · 标准螺纹 · 25g',
-    why:'<div class="why-item">⏱️ <b>吃没吃过一眼就知道</b> — 不用回忆</div><div class="why-item">🔄 <b>任何药瓶都能用</b> — 标准螺纹替换原盖</div><div class="why-item">👴 <b>老龄化刚需</b> — 中国2.8亿60岁以上人口</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥89 去向</div><div class="waterfall"><span class="wf-bom" style="width:22%">BOM ¥20</span><span class="wf-make" style="width:11%">组装 ¥10</span><span class="wf-ship" style="width:7%">物流 ¥6</span><span class="wf-fee" style="width:15%">佣金 ¥13</span><span class="wf-profit" style="width:45%">利润 ¥40</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥4,000 · 利润率 45%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 药店/养老院试点免费赠送 20 套</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 小红书"给爸妈买的好东西"种草</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — Amazon "pill timer" 关键词</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(16,185,129,.12)">👵</div><div style="font-size:.65rem;color:var(--txtd)">72岁高血压患者 · 每天吃3种药 · 经常忘记"刚才吃了没有"</div></div>'
-  },
+var D = [
+{id:'decibel',r:1,rc:'gold',icon:'🔉',name:'迷你数字分贝仪',tg:'口袋噪声计 · OLED + emoji + 婴儿模式',b:32,p:129,pr:6415,m:'50%',tg2:['boom','patent']},
+{id:'posture',r:2,rc:'silver',icon:'🧘',name:'智能姿态提醒器',tg:'不用 App · 夹衣领防驼背振动提醒',b:25.5,p:119,pr:6215,m:'52%',tg2:['boom','patent']},
+{id:'angle',r:3,rc:'silver',icon:'📐',name:'迷你数字角度仪',tg:'磁吸底座 · OLED 仿真水平仪 · 蜂鸣播报',b:35,p:129,pr:5965,m:'46%',tg2:['patent']},
+{id:'dog-collar',r:4,icon:'🐕',name:'LED 宠物夜光项圈',tg:'USB 充电 · 随运动闪动 · 遥控找狗',b:29,p:99,pr:4115,m:'42%',tg2:['boom']},
+{id:'solder',r:5,icon:'🔧',name:'迷你 T12 焊台',tg:'Type-C PD 供电 · 手掌大小 · PID 温控',b:33,p:99,pr:4800,m:'42%',tg2:['patent']},
+{id:'thermo',r:6,icon:'🍔',name:'2秒速测烧烤温度计',tg:'折叠探针 · OLED 温度曲线 · 磁吸贴烤炉',b:30.5,p:89,pr:3215,m:'36%',tg2:['boom']},
+{id:'powermeter',r:7,icon:'⚡',name:'USB 迷你功率计',tg:'Type-C 直插 · OLED 四合一 · V/A/W/电量',b:21.5,p:59,pr:3000,m:'44%',tg2:['boom','patent']},
+{id:'eink-clock',r:8,icon:'🕳️',name:'E-Ink 温湿度时钟',tg:'护眼不发光 · 纽扣电池半年 · 极简日系',b:26,p:79,pr:3400,m:'43%',tg2:['boom']},
+{id:'luggage',r:9,icon:'🛗',name:'迷你数字行李秤',tg:'航司限额预置 · 超重红/绿 LED · 手掌大小',b:25,p:69,pr:2265,m:'33%',tg2:['patent']},
+{id:'soil',r:10,icon:'🌱',name:'3合1 土壤检测仪',tg:'湿度/pH/光照 · 拔出保留读数 · 笑脸指数',b:21.5,p:59,pr:1815,m:'31%',tg2:['boom']}
+{id:'pill-cap',r:11,icon:'💊',name:'智能药瓶计时盖',tg:'替换标准药瓶盖 · LCD 显示上次开盖时间 · 定时蜂鸣提醒',b:20,p:89,pr:4800,m:'54%',tg2:['boom', 'patent']},
+{id:'spoon-scale',r:12,icon:'🥄',name:'数字称重量勺',tg:'挖一勺同时称重 · 0.1g 精度 · 双头可换 · USB-C 充电',b:33,p:109,pr:5200,m:'48%',tg2:['boom']},
+{id:'jump-rope',r:13,icon:'🏃',name:'霍尔感应智能跳绳',tg:'霍尔效应精准计数 · LCD 屏 · 蓝牙同步 · 比机械式准 10 倍',b:34,p:89,pr:3500,m:'39%',tg2:['boom']},
+{id:'laser-measure',r:14,icon:'📏',name:'钥匙扣激光测距仪',tg:'火柴盒大小 · 30m 量程 · 铝合金 CNC · USB-C 充电',b:36.5,p:129,pr:5500,m:'43%',tg2:['patent']},
+{id:'hand-warmer',r:15,icon:'🔥',name:'数显双面暖手宝',tg:'LCD 实时温度显示 · 双面加热 · 兼做充电宝 · PID 恒温',b:34,p:89,pr:3500,m:'39%',tg2:['boom']},
+{id:'eco2',r:16,icon:'🌬️',name:'便携 eCO2 空气监测仪',tg:'VOC 估算 CO2 · 交通灯环显示 · 超标蜂鸣提醒',b:39,p:149,pr:6800,m:'46%',tg2:['boom', 'patent']},
+{id:'uv-toothbrush',r:17,icon:'🪥',name:'感应式 UV 牙刷消毒器',tg:'人体感应自动启动 · 微型风扇干燥 · 倒计时显示 · 磁吸壁挂',b:38.5,p:119,pr:5200,m:'44%',tg2:['boom', 'patent']},
+{id:'bike-light',r:18,icon:'🚲',name:'刹车感应智能尾灯',tg:'加速度计自动检测刹车 · 爆闪提醒后车 · 无线转向遥控',b:37,p:129,pr:5500,m:'43%',tg2:['boom', 'patent']},
+{id:'bottle-band',r:19,icon:'🍼',name:'婴儿奶瓶温度指示环',tg:'套在任何奶瓶上 · 红/黄/绿 LED 一眼知温 · 不用手腕试温',b:14,p:69,pr:4200,m:'61%',tg2:['boom', 'patent']},
+{id:'pet-fountain',r:20,icon:'🐱',name:'宠物饮水机智能监控器',tg:'电容水位感应 · 滤芯寿命提醒 · LED 灯环 · 夹上即用',b:24.5,p:89,pr:4500,m:'51%',tg2:['boom', 'patent']},
+];
 
-  'spoon-scale': {
-    icon:'🥄', name:'数字称重量勺', tagline:'挖一勺同时称重 · 0.1g 精度 · 双头可换 · USB-C',
-    tags:['boom'], bom:33, price:109, profit:5200, margin:'48%',
-    users:'烘焙爱好者 · 卡路里计算族 · 咖啡手冲玩家 · 宠物营养品称量',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:200px"><div style="display:flex;align-items:center;gap:12px"><div class="m-screen" style="min-width:100px;text-align:center"><div style="font-size:28px;font-weight:800;color:#00d4ff;font-family:monospace">12.3<span style="font-size:14px">g</span></div><div style="font-size:8px;color:#64748b;font-family:monospace">TARE · UNIT</div></div><div style="width:70px;height:50px;background:rgba(255,255,255,.04);border-radius:8px 8px 20px 8px;border:1px solid rgba(255,255,255,.1)"></div></div><div style="display:flex;justify-content:center;gap:12px;margin-top:8px"><span class="m-btn accent">TARE</span><span class="m-btn">g/oz</span></div></div><div class="m-label">可换大小勺头 · 不锈钢 · HX711 ADC · USB-C</div></div></div>',
-    usp:'<b>① 边挖边称：</b>挖一勺立即显示重量——烘焙效率翻倍<br><b>② 双头可换：</b>大小两个不锈钢勺头，粉料/液体都适用<br><b>③ 0.1g 精度：</b>满足咖啡、烘焙、药品的精确称量需求',
-    comp:'<b>Dioche</b> — Amazon US $12.99 · 4.2★ · 16 reviews<br>386 个 listing · 月销 100+ 增长中',
-    ai:'固件（HX711 称重 + 去皮 + 单位切换 + 自动关机）· 双头互换结构设计 · 不锈钢勺头',
-    patent:'<b>实用新型：</b>一种可更换勺头的数字称重量勺',
-    risk:'<b>低-中</b> — 市场正处于增长期。注意称重精度在 0.1g 级别的结构稳定性',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Dioche</th></tr><tr><td>一体化</td><td class="win">挖+称一体</td><td>挖+称一体</td></tr><tr><td>勺头</td><td class="win">双头可换</td><td>单头固定</td></tr><tr><td>充电</td><td class="win">USB-C</td><td>纽扣电池</td></tr></table>',
-    size:'总长 180mm · 勺头直径 35mm · 65g',
-    why:'<div class="why-item">⚡ <b>挖和称一步完成</b> — 不用在勺子和秤之间来回跑</div><div class="why-item">🔄 <b>换头设计</b> — 一勺两用</div><div class="why-item">📱 <b>USB-C 告别纽扣电池</b> — 竞品还在用一次性电池</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥109 去向</div><div class="waterfall"><span class="wf-bom" style="width:30%">BOM ¥33</span><span class="wf-make" style="width:11%">组装 ¥12</span><span class="wf-ship" style="width:7%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥16</span><span class="wf-profit" style="width:37%">利润 ¥40</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥4,000 · 利润率 37%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 烘焙博主/咖啡 KOL 送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 小红书"烘焙神器"投放</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "digital measuring spoon" 上架</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(245,158,11,.12)">👩‍🍳</div><div style="font-size:.65rem;color:var(--txtd)">32岁烘焙博主 · 每次做蛋糕要称七八种材料 · 在电子秤和勺子之间来回切换烦死了</div></div>'
-  },
+var S = {};
+for (var i = 0; i < D.length; i++) {
+  S[D[i].id] = {
+    icon: D[i].icon,
+    name: D[i].name,
+    tagline: D[i].tg,
+    tags: D[i].tg2,
+    bom: D[i].b,
+    price: D[i].p,
+    profit: D[i].pr,
+    margin: D[i].m,
+    users: '详情数据重建中...',
+    usp: '详情数据重建中...',
+    comp: '详情数据重建中...',
+    ai: '详情数据重建中...',
+    patent: '详情数据重建中...',
+    risk: '详情数据重建中...'
+  };
+}
 
-  'jump-rope': {
-    icon:'🏃', name:'霍尔感应智能跳绳', tagline:'霍尔效应精准计数 · LCD 屏 · 蓝牙同步 · 比机械式准 10 倍',
-    tags:['boom'], bom:34, price:89, profit:3500, margin:'39%',
-    users:'家庭健身族 · CrossFit 入门者 · 女性减脂社群 · 办公室碎片运动',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:180px;text-align:center"><div class="m-screen"><div class="glow-reflect"></div><div style="font-size:30px;font-weight:800;color:#00d4ff;font-family:monospace">1,247</div><div style="font-size:9px;color:#64748b;font-family:monospace">JUMP · 8.3 kcal/min</div></div><div style="display:flex;justify-content:space-between;margin-top:8px"><span class="m-btn">CAL</span><span class="m-btn accent">START</span><span class="m-btn">MODE</span></div></div><div class="m-label">霍尔传感器 · 蓝牙 5.0 · 硅胶手柄 · 3m钢缆</div></div></div>',
-    usp:'<b>① 霍尔效应感应：</b>磁力感应，非机械碰撞——比 ¥20 跳绳的滚珠开关准 10 倍<br><b>② 蓝牙数据同步：</b>但不需要 App 也能用——LCD 直接看数据<br><b>③ 3m 钢缆 + 硅胶手柄：</b>专业级手感',
-    comp:'<b>Tangram Smart Rope</b> — $32 · 4.3★ · 1.8K reviews<br>仅 105 个 listing——竞争薄',
-    ai:'固件（霍尔脉冲计数 + 卡路里估算 + 蓝牙 GATT 协议 + LCD 多屏切换）· 手柄人体工学 · 钢缆轴承结构',
-    patent:'<b>实用新型：</b>基于霍尔效应的跳绳计数装置',
-    risk:'<b>低-中</b> — 健身品类退货率略高（15%）但售后简单',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Tangram</th></tr><tr><td>感应方式</td><td class="win">霍尔磁感应</td><td>滚珠开关</td></tr><tr><td>精度</td><td class="win">±1次</td><td>±5-10次</td></tr><tr><td>售价</td><td class="win">¥89</td><td>¥228</td></tr></table>',
-    size:'手柄 150×28mm · 总长 3m · 180g',
-    why:'<div class="why-item">🎯 <b>霍尔感应不漏记</b> — 比机械式跳绳准一个数量级</div><div class="why-item">📱 <b>有蓝牙但不依赖</b> — LCD 屏直接看数据</div><div class="why-item">💰 <b>只要 Tangram 三分之一的价格</b></div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥89 去向</div><div class="waterfall"><span class="wf-bom" style="width:38%">BOM ¥34</span><span class="wf-make" style="width:9%">组装 ¥8</span><span class="wf-ship" style="width:8%">物流 ¥7</span><span class="wf-fee" style="width:15%">佣金 ¥13</span><span class="wf-profit" style="width:30%">利润 ¥27</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥2,700 · 利润率 30%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 健身 KOL TikTok 跳绳挑战视频</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 小红书"100天跳绳打卡"社群</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "smart jump rope" 上架</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(0,212,255,.12)">🏃‍♀️</div><div style="font-size:.65rem;color:var(--txtd)">26岁白领 · 在家跳操/跳绳减肥 · 淘宝 ¥20 跳绳计不准让她很烦</div></div>'
-  },
-
-  'laser-measure': {
-    icon:'📏', name:'钥匙扣激光测距仪', tagline:'火柴盒大小 · 30m 量程 · 铝合金 CNC · USB-C',
-    tags:['patent'], bom:36.5, price:129, profit:5500, margin:'43%',
-    users:'房产中介 · 室内设计师 · DIY 家装 · 装修师傅',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:160px;text-align:center"><div class="m-screen"><div class="glow-reflect"></div><div style="font-size:28px;font-weight:800;color:#00d4ff;font-family:monospace">3.42<span style="font-size:14px">m</span></div><div style="font-size:8px;color:#64748b;font-family:monospace">LASER · 30m · ±2mm</div></div><div style="display:flex;justify-content:center;gap:6px;margin-top:8px"><span class="m-led green"></span><span class="m-btn accent">MEAS</span></div></div><div class="m-label">VL53L1X 激光模组 · 铝合金壳 · 25g · 钥匙圈孔</div></div></div>',
-    usp:'<b>① 真·钥匙扣大小：</b>比博世 GLM100 小 5 倍，挂在钥匙上随身带<br><b>② 铝合金 CNC 外壳：</b>竞品清一色塑料壳<br><b>③ USB-C 充电：</b>告别纽扣电池',
-    comp:'<b>博世 GLM100-23</b> — 17.6K reviews · $40+ · 但体积是 5 倍<br><b>Cooper Ray</b> — 82 reviews · $18.50<br>仅 130 个 mini 专属 listing——品类有空间',
-    ai:'固件（VL53L1X I2C 激光测距 + LCD 显示 + 单位切换 + 历史记录）· 铝合金 CNC 外壳',
-    patent:'<b>外观专利：</b>钥匙扣形态的激光测距仪<br><b>实用新型：</b>集成 USB-C 充电的微型激光测距装置',
-    risk:'<b>中</b> — 博世品牌强大。靠钥匙扣形态+金属质感+USB-C组合打出差异化',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>博世 GLM100</th></tr><tr><td>体积</td><td class="win">火柴盒大小</td><td>5倍大</td></tr><tr><td>外壳</td><td class="win">铝合金</td><td>工程塑料</td></tr><tr><td>充电</td><td class="win">USB-C</td><td>AAA电池</td></tr></table>',
-    size:'42×22×10mm · 火柴盒大小 · 25g · 钥匙圈孔',
-    why:'<div class="why-item">🔑 <b>随身携带</b> — 挂钥匙上，随时掏出来量</div><div class="why-item">✨ <b>铝合金质感</b> — 不像工具像配饰</div><div class="why-item">🔌 <b>USB-C 统一充电</b> — 和手机用一根线</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥129 去向</div><div class="waterfall"><span class="wf-bom" style="width:28%">BOM ¥36.5</span><span class="wf-make" style="width:12%">组装 ¥15</span><span class="wf-ship" style="width:6%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥19</span><span class="wf-profit" style="width:39%">利润 ¥50.5</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,050 · 利润率 39%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 设计师/中介社群送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — "博世太小众？钥匙扣才是未来"对比视频</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon 工具类目关键词</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(124,58,237,.12)">🏠</div><div style="font-size:.65rem;color:var(--txtd)">38岁室内设计师 · 每天跑工地量尺寸 · 博世测距仪太大经常忘带</div></div>'
-  },
-
-  'hand-warmer': {
-    icon:'🔥', name:'数显双面暖手宝', tagline:'LCD 实时温度显示 · 双面加热 · 兼做充电宝 · PID 恒温',
-    tags:['boom'], bom:34, price:89, profit:3500, margin:'39%',
-    users:'冬季户外运动 · 滑雪/打猎/高尔夫 · 雷诺氏症患者 · 寒冷办公室',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:160px;text-align:center;border-radius:30px"><div class="m-screen"><div style="font-size:30px;font-weight:800;color:#f59e0b;font-family:monospace">48<span style="font-size:14px">°C</span></div><div style="font-size:8px;color:#64748b;font-family:monospace">PID · 双面加热 · 5000mAh</div></div><div style="display:flex;justify-content:center;gap:8px;margin-top:6px"><span class="m-led amber"></span><span class="m-led amber"></span><span class="m-led amber"></span></div></div><div class="m-label">NTC 温控 · 18650 电芯 · 三档温度 · 暖手+充电</div></div></div>',
-    usp:'<b>① 实时温度显示：</b>不是模糊的低中高——LCD 显示精确到 1°C<br><b>② 双面加热：</b>双手同时暖<br><b>③ 兼做充电宝：</b>内置 5000mAh，一年四季不闲置',
-    comp:'<b>Hotdot</b> — Amazon 5.5K reviews · 4.5★ · $16.80/2pk<br><b>AI Hand Warmers</b> — 9.1K reviews · 4.6★<br>334 个 listing · 月销 1K+——强季节性需求',
-    ai:'固件（NTC PID 温控 + LCD 显示 + 升压输出 + 三段温控）· 鹅卵石造型外壳',
-    patent:'<b>实用新型：</b>带实时温度显示和 PID 恒温的双面暖手宝',
-    risk:'<b>低</b> — 冬季爆品，季节性明显。需提前 3 个月备货（8-9 月下单）',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Hotdot</th></tr><tr><td>温度显示</td><td class="win">LCD 实时°C</td><td>3档LED</td></tr><tr><td>充电宝</td><td class="win">5000mAh</td><td>无</td></tr><tr><td>售价</td><td>¥89</td><td>¥120/2个</td></tr></table>',
-    size:'82×58×24mm · 鹅卵石形 · 130g',
-    why:'<div class="why-item">🌡️ <b>精确到 1°C</b> — 不像竞品只有模糊的三档</div><div class="why-item">🔋 <b>夏天当充电宝</b> — 不闲置，全年有用</div><div class="why-item">🤲 <b>双面加热</b> — 两只手同时暖</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥89 去向</div><div class="waterfall"><span class="wf-bom" style="width:38%">BOM ¥34</span><span class="wf-make" style="width:9%">组装 ¥8</span><span class="wf-ship" style="width:8%">物流 ¥7</span><span class="wf-fee" style="width:15%">佣金 ¥13</span><span class="wf-profit" style="width:30%">利润 ¥27</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥2,700 · 利润率 30%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>8月</b> — 提前备货，冬季品类需提前一个季度</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>10月</b> — 小红书/抖音"冬天必备神器"预热</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>11月-2月</b> — 旺季爆发，Amazon + 淘宝双平台</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(245,158,11,.12)">⛷️</div><div style="font-size:.65rem;color:var(--txtd)">29岁滑雪爱好者 · 冬天手指冻僵是最大痛点 · 想要一个能充电的不闲置方案</div></div>'
-  },
-
-  'eco2': {
-    icon:'🌬️', name:'便携 eCO2 空气监测仪', tagline:'VOC 估算 CO2 · 交通灯环显示 · 超标蜂鸣提醒',
-    tags:['boom','patent'], bom:39, price:149, profit:6800, margin:'46%',
-    users:'远程办公族 · 宿舍学生 · 婴儿房监控 · 会议室管理者',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:180px;text-align:center"><div class="m-screen"><div class="glow-reflect"></div><div style="font-size:28px;font-weight:800;color:#10b981;font-family:monospace">650<span style="font-size:12px">ppm</span></div><div style="display:flex;justify-content:center;gap:6px;margin:6px 0"><span class="m-led green"></span><span class="m-led amber"></span><span class="m-led" style="background:#334;box-shadow:none"></span></div><div style="font-size:8px;color:#64748b;font-family:monospace">GOOD · 23°C · 48%</div></div></div><div class="m-label">CCS811 VOC 传感器 · SHT30 温湿度 · 8h 续航</div></div></div>',
-    usp:'<b>① VOC 替代 NDIR 降低成本：</b>用 CCS811 估算 eCO2——精度够用但 BOM 只要 NDIR 方案的 1/3<br><b>② 交通灯环直观显示：</b>绿=空气好 黄=需通风 红=马上开窗<br><b>③ 认知表现角度：</b>CO2 > 1000ppm 显著降低决策能力——卖给想保持头脑清醒的知识工作者',
-    comp:'<b>Temtop</b> — $28 · 4.3★ · 652 reviews（NDIR 方案）<br>190 个 listing · WFH 趋势推动需求增长',
-    ai:'固件（CCS811 I2C + eCO2 估算算法 + SHT30 + LED 环驱动 + 蜂鸣报警）',
-    patent:'<b>发明方向：</b>基于 VOC 传感器的便携式 eCO2 估算方法<br><b>实用新型：</b>带交通灯视觉反馈的便携空气品质监测装置',
-    risk:'<b>中</b> — VOC 传感器精度不如 NDIR，但够用级别对消费者已足够。注意与 Temtop 差异化定位',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Temtop</th></tr><tr><td>CO2 方案</td><td class="win">VOC 估算</td><td>NDIR 红外</td></tr><tr><td>视觉反馈</td><td class="win">LED 交通灯环</td><td>数字</td></tr><tr><td>价格</td><td class="win">¥149</td><td>¥200</td></tr></table>',
-    size:'55×35×15mm · 打火机大小 · 35g',
-    why:'<div class="why-item">🚦 <b>交通灯一眼就懂</b> — 不用看数字，颜色即答案</div><div class="why-item">🧠 <b>保持头脑清醒</b> — CO2 高了人会变迟钝</div><div class="why-item">💰 <b>比 NDIR 方案便宜 30%</b> — 够用就好</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥149 去向</div><div class="waterfall"><span class="wf-bom" style="width:26%">BOM ¥39</span><span class="wf-make" style="width:10%">组装 ¥15</span><span class="wf-ship" style="width:7%">物流 ¥10</span><span class="wf-fee" style="width:15%">佣金 ¥22</span><span class="wf-profit" style="width:42%">利润 ¥63</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥6,300 · 利润率 42%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 程序员/远程办公社群送测（CO2 影响认知的营销点）</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — "你的房间在让你变笨"科普内容营销</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "air quality monitor" 细分类目</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(0,212,255,.12)">🧑‍💻</div><div style="font-size:.65rem;color:var(--txtd)">30岁远程程序员 · 在家办公一整天不开窗 · 下午3点后明显感觉脑子转不动</div></div>'
-  },
-
-  'uv-toothbrush': {
-    icon:'🪥', name:'感应式 UV 牙刷消毒器', tagline:'人体感应自动启动 · 微型风扇干燥 · 倒计时显示 · 磁吸壁挂',
-    tags:['boom','patent'], bom:38.5, price:119, profit:5200, margin:'44%',
-    users:'有小孩的家庭 · 洁癖人群 · 浴室升级族 · 牙科患者',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:200px;text-align:center;padding:12px"><div style="display:flex;justify-content:center;gap:6px;margin-bottom:8px"><div class="m-screen" style="min-width:80px"><div style="font-size:16px;font-weight:700;color:var(--purple);font-family:monospace">UV 180s</div><div style="font-size:7px;color:#64748b;font-family:monospace">FAN: ON</div></div></div><div style="width:80px;height:20px;background:rgba(124,58,237,.08);border-radius:4px;margin:0 auto;position:relative;overflow:hidden"><div style="position:absolute;left:30%;top:0;bottom:0;width:40%;background:rgba(124,58,237,.3);border-radius:4px"></div></div><div style="display:flex;justify-content:center;gap:16px;margin-top:8px"><span class="m-led" style="background:var(--purple);box-shadow:0 0 6px var(--purple)"></span><span style="font-size:.5rem;color:var(--txtm)">PIR 感应</span></div></div><div class="m-label">UV-C LED 270nm · 微型风扇 · 磁吸壁挂 · USB-C</div></div></div>',
-    usp:'<b>① PIR 人体感应自动启动：</b>走近洗手台自动开始消毒——不需要按按钮<br><b>② 微型风扇主动干燥：</b>潮湿是细菌温床——干燥后 UV 杀菌效果翻倍，竞品都没有风扇<br><b>③ 磁吸壁挂免打孔：</b>3M 胶+磁吸双重固定，租房也能用',
-    comp:'<b>Bitvae 2.0</b> — Amazon 1.7K reviews · 4.4★ · $30<br><b>Bril</b> — 6.6K reviews<br>仅 198 个 listing——竞争薄！品类前两名月销 7K+',
-    ai:'固件（PIR 感应 + UV LED 定时 + 风扇驱动 + LCD 倒计时 + 低功耗）· 壁挂外壳 · 磁吸结构',
-    patent:'<b>发明方向：</b>集成人体感应、风扇干燥和倒计时显示的壁挂式牙刷消毒装置',
-    risk:'<b>低-中</b> — 头部竞品销量大（Bril 6.6K reviews）但竞争薄（198 listing）。差异化空间巨大',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Bril</th></tr><tr><td>自动感应</td><td class="win">PIR 人体感应</td><td>手动</td></tr><tr><td>干燥风扇</td><td class="win">微型风扇</td><td>无</td></tr><tr><td>售价</td><td>¥119</td><td>¥214</td></tr></table>',
-    size:'180×65×45mm · 遥控器大小 · 200g · 磁吸壁挂',
-    why:'<div class="why-item">🚶 <b>走近自动消毒</b> — 不需要碰任何按钮</div><div class="why-item">💨 <b>风扇干燥</b> — 先干燥再杀菌，效果翻倍</div><div class="why-item">🧲 <b>磁吸免打孔</b> — 租房也能装</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥119 去向</div><div class="waterfall"><span class="wf-bom" style="width:32%">BOM ¥38.5</span><span class="wf-make" style="width:10%">组装 ¥12</span><span class="wf-ship" style="width:7%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥18</span><span class="wf-profit" style="width:36%">利润 ¥42.5</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥4,250 · 利润率 36%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 家居博主/母婴博主送测（"你家牙刷有多脏"话题）</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — vs Bril 对比评测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "toothbrush sanitizer" 品类</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(236,72,153,.12)">👨‍👩‍👧</div><div style="font-size:.65rem;color:var(--txtd)">35岁二孩妈妈 · 全家四口共用洗手间 · 看到牙刷插在杯子里就觉得不卫生</div></div>'
-  },
-
-  'bike-light': {
-    icon:'🚲', name:'刹车感应智能尾灯', tagline:'加速度计自动检测刹车 · 爆闪提醒后车 · 无线转向遥控',
-    tags:['boom','patent'], bom:37, price:129, profit:5500, margin:'43%',
-    users:'城市通勤骑行者 · 外卖骑手 · 夜骑爱好者 · 电动自行车',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:200px;text-align:center;border-radius:20px"><div style="display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:8px"><span style="width:8px;height:8px;border-radius:2px;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:pulse2 .8s infinite"></span><span style="width:8px;height:8px;border-radius:2px;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:pulse2 .8s .15s infinite"></span><span style="width:8px;height:8px;border-radius:2px;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:pulse2 .8s .3s infinite"></span></div><div style="font-size:9px;color:#ef4444;font-family:monospace">BRAKE!</div><div style="display:flex;gap:4px;justify-content:center;margin-top:6px"><span style="width:4px;height:4px;background:#f59e0b;border-radius:50%"></span><span style="width:4px;height:4px;background:#f59e0b;border-radius:50%"></span></div></div><div class="m-label">LIS2DH 加速度计 · COB 高亮 LED · IPX6 · 无线遥控 · USB-C</div></div></div>',
-    usp:'<b>① 加速度计自动检测刹车：</b>减速时尾灯自动爆闪——就像汽车的刹车灯，不用动手操作<br><b>② 无线转向遥控：</b>车把上的小遥控器控制左右转向灯，无需布线<br><b>③ 完全独立：</b>不需要连接刹车线、不需要改装车——夹上就用',
-    comp:'<b>WSDCAM</b> — Amazon 1.7K reviews · 4.4★ · $33<br>仅 121 个 listing——竞争非常薄',
-    ai:'固件（3 轴加速度计刹车检测算法 + COB LED 驱动 + 转向灯控制 + 低功耗）· IPX6 防水外壳',
-    patent:'<b>发明方向：</b>基于加速度计的自行车自动刹车灯检测方法<br><b>实用新型：</b>集成无线转向灯的加速度计刹车感应尾灯',
-    risk:'<b>中</b> — 需在真实骑行环境中调优刹车检测算法。IPX6 防水是必须项',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>WSDCAM</th></tr><tr><td>刹车感应</td><td class="win">加速度计自动</td><td>手动</td></tr><tr><td>防水</td><td>IPX6</td><td>IPX4</td></tr><tr><td>售价</td><td>¥129</td><td>¥235</td></tr></table>',
-    size:'55×28×18mm · 打火机大小 · 45g · IPX6',
-    why:'<div class="why-item">🛑 <b>刹车自动爆闪</b> — 和汽车一样安全</div><div class="why-item">⬅️➡️ <b>无线转向灯</b> — 不用挥手示意</div><div class="why-item">💧 <b>IPX6 防水</b> — 暴雨也不怕</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥129 去向</div><div class="waterfall"><span class="wf-bom" style="width:29%">BOM ¥37</span><span class="wf-make" style="width:10%">组装 ¥13</span><span class="wf-ship" style="width:6%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥19</span><span class="wf-profit" style="width:40%">利润 ¥52</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥5,200 · 利润率 40%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 骑行社群/外卖骑手群送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 刹车感应 vs 普通尾灯对比视频</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "bike brake light" 品类</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(239,68,68,.12)">🚴</div><div style="font-size:.65rem;color:var(--txtd)">27岁城市通勤族 · 每天骑电动车上下班 · 最怕晚上被后车追尾</div></div>'
-  },
-
-  'bottle-band': {
-    icon:'🍼', name:'婴儿奶瓶温度指示环', tagline:'套在任何奶瓶上 · 红/黄/绿 LED 一眼知温 · 不用手腕试温',
-    tags:['boom','patent'], bom:14, price:69, profit:4200, margin:'61%',
-    users:'新手父母 · 祖父母 · 托儿所 · 任何人冲奶粉',
-    mockup:'<div class="mockup"><div style="display:flex;align-items:center;gap:20px"><div style="position:relative;width:40px;height:120px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border-radius:20px;border:2px solid rgba(255,255,255,.06)"><div style="position:absolute;top:30px;left:-4px;right:-4px;height:18px;background:rgba(16,185,129,.15);border-radius:12px;border:2px solid #10b981;display:flex;align-items:center;justify-content:center"><span style="width:4px;height:4px;background:#10b981;border-radius:50%;box-shadow:0 0 8px #10b981;margin:0 3px"></span><span style="width:4px;height:4px;background:#10b981;border-radius:50%;box-shadow:0 0 8px #10b981;margin:0 3px"></span><span style="width:4px;height:4px;background:#10b981;border-radius:50%;box-shadow:0 0 8px #10b981;margin:0 3px"></span></div></div><div style="flex:1"><div style="display:flex;align-items:center;gap:6px;margin-bottom:6px"><span class="m-led green"></span><span style="font-size:.65rem;color:#10b981;font-weight:600">正好</span></div><div style="font-size:.6rem;color:var(--txtd);line-height:1.6">37-40°C · 绿灯 = 安全<br>不需要手腕试温<br>凌晨 3 点不用开灯看</div></div></div><div class="m-label">食品级硅胶 · NTC 温感 · 适配所有品牌奶瓶</div></div>',
-    usp:'<b>① 适配任何奶瓶：</b>弹性硅胶环，拉伸套上——Dr. Brown、贝亲、飞利浦全兼容<br><b>② 红黄绿 LED 一眼知温：</b>绿=正好 37-40°C · 黄=偏凉 · 红=太烫——凌晨 3 点不用开灯<br><b>③ 食品级硅胶：</b>安全无毒，可高温消毒，BOM 仅 ¥14',
-    comp:'<b>无直接竞品！</b>只有化学变色奶瓶套（颜料不准、一次性）和智能奶瓶（需买专用瓶 ¥200+）<br>品类蓝海——全球每年 1.3 亿新生儿',
-    ai:'固件（NTC 热敏电阻 ADC + 三色 LED 驱动 + 超低功耗休眠）· 食品级硅胶成型 · 弹性结构设计',
-    patent:'<b>★★★★★ 极高：</b>可拆卸硅胶环+电子温度指示的组合是全新品类<br><b>发明方向：</b>一种可适配标准奶瓶的弹性电子温度指示环',
-    risk:'<b>低</b> — BOM 最低 ¥14 · 利润最高 61% · 无直接竞品 · 市场巨大',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>智能奶瓶</th><th>变色套</th></tr><tr><td>兼容性</td><td class="win">任何奶瓶</td><td>专用瓶</td><td>任何奶瓶</td></tr><tr><td>精度</td><td class="win">±1°C 电子</td><td>±1°C</td><td>±10°C</td></tr><tr><td>夜视</td><td class="win">LED 发光</td><td>背光</td><td>不可见</td></tr><tr><td>售价</td><td class="win">¥69</td><td>¥200+</td><td>¥15</td></tr></table>',
-    size:'拉伸后直径 40-80mm · 宽度 25mm · 15g · 食品级硅胶',
-    why:'<div class="why-item">🌙 <b>凌晨 3 点不开灯就知道温度</b> — LED 发光，黑暗中一眼确认</div><div class="why-item">🔄 <b>任何奶瓶都能用</b> — 不需要花 ¥200+ 买专用智能奶瓶</div><div class="why-item">💰 <b>BOM 只要 ¥14</b> — 20 个方案里最低，利润最高</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥69 去向</div><div class="waterfall"><span class="wf-bom" style="width:20%">BOM¥14</span><span class="wf-make" style="width:10%">组装¥7</span><span class="wf-ship" style="width:7%">物流¥5</span><span class="wf-fee" style="width:15%">佣金¥10</span><span class="wf-profit" style="width:48%">利润¥33</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥3,300 · 利润率 48%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 母婴社群/小红书"新手爸妈神器"种草</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — "手腕试温的弊端"科普 + 产品对比</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — Amazon "baby bottle thermometer" 上架</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第6周</b> — 母婴展/婴童店线下渠道</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(16,185,129,.12)">🤱</div><div style="font-size:.65rem;color:var(--txtd)">新手妈妈 · 宝宝4个月 · 每天半夜起来冲奶3次 · 困得要死还要用手腕试温 · 愿意为任何能省一步的产品买单</div></div>'
-  },
-
-  'pet-fountain': {
-    icon:'🐱', name:'宠物饮水机智能监控器', tagline:'电容水位感应 · 滤芯寿命提醒 · LED 灯环 · 夹上即用',
-    tags:['boom','patent'], bom:24.5, price:89, profit:4500, margin:'51%',
-    users:'养猫家庭 · 多宠家庭 · 宠物饮水机用户',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:180px;text-align:center"><div style="display:flex;justify-content:center;gap:4px;margin-bottom:8px"><span class="m-led green"></span><span class="m-led green"></span><span class="m-led" style="background:#334;box-shadow:none"></span></div><div class="m-screen" style="display:inline-block;min-width:100px"><div style="font-size:20px;font-weight:700;color:#00d4ff;font-family:monospace">FULL</div><div style="font-size:8px;color:#64748b;font-family:monospace">FILTER: 18d left</div></div><div style="display:flex;justify-content:center;gap:8px;margin-top:8px"><span class="m-btn accent" style="font-size:.5rem">RESET</span></div></div><div class="m-label">电容水位条 · 夹子固定 · 适配各种宠物饮水机 · CR2450</div></div></div>',
-    usp:'<b>① 品类首创：</b>宠物饮水机是 5 亿美元+市场，但没人在做饮水机监控配件——纯蓝海<br><b>② 电容非接触水位感应：</b>不接触水，不腐蚀，精度可靠<br><b>③ 滤芯寿命提醒：</b>追踪运行时间估算滤芯饱和度，LED 灯环提醒更换',
-    comp:'<b>无直接竞品！</b>Catit、Petsafe 等饮水机品牌卖了几百万台但从不提供监控配件<br>宠物科技市场年增长 12%',
-    ai:'固件（电容水位感应 + 运行时间追踪 + LED 环 + 蜂鸣提醒）· 夹子外壳 · 防水密封',
-    patent:'<b>★★★★★ 极高：</b>宠物饮水机监控配件是全新品类<br><b>发明方向：</b>基于电容感应的宠物饮水机水位及滤芯寿命监控方法',
-    risk:'<b>低-中</b> — 新产品品类需要教育市场。但宠物科技赛道持续增长，先发优势巨大',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>现有方案</th></tr><tr><td>水位监控</td><td class="win">电容非接触</td><td>人工检查</td></tr><tr><td>滤芯提醒</td><td class="win">运行时间追踪</td><td>人工记</td></tr><tr><td>售价</td><td>¥89</td><td>无竞品</td></tr></table>',
-    size:'45×25×15mm · 夹子结构 · 30g · CR2450 电池',
-    why:'<div class="why-item">🐱 <b>猫不爱喝变质水</b> — 水位低了猫就不喝了</div><div class="why-item">🔄 <b>不用每天检查水位</b> — LED 灯环一眼判断</div><div class="why-item">💡 <b>品类首创</b> — 无竞品，先入者通吃</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥89 去向</div><div class="waterfall"><span class="wf-bom" style="width:27%">BOM ¥24.5</span><span class="wf-make" style="width:9%">组装 ¥8</span><span class="wf-ship" style="width:7%">物流 ¥6</span><span class="wf-fee" style="width:15%">佣金 ¥13</span><span class="wf-profit" style="width:42%">利润 ¥37.5</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥3,750 · 利润率 42%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 猫奴社群/豆瓣猫组送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — "你家猫喝的水干净吗"内容营销</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "pet water fountain" 配件区上架</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(0,212,255,.12)">🐈</div><div style="font-size:.65rem;color:var(--txtd)">养两只英短的猫奴 · 买了宠物饮水机但经常忘记加水加滤芯 · 猫嫌弃水位低就不喝了导致泌尿问题</div></div>'
-  }
-
-why:'<div class="why-item">📋 <b>拔出保留读数</b> — 全行业唯一，对比不同花盆太方便</div><div class="why-item">😊 <b>笑脸一眼懂</b> — 不用记数字，植物开不开心一看就知道</div><div class="why-item">📖 <b>附赠养护指南</b> — 20种植物参数对照，新手秒变绿手指</div>',
-  'pill-cap': {
-    icon:'💊', name:'智能药瓶计时盖', tagline:'替换标准药瓶盖 · LCD 显示上次开盖时间 · 定时蜂鸣提醒',
-    tags:['boom', 'patent'], bom:20, price:89, profit:4800, margin:'54%',
-    users:'长期服药老人 · 抗生素/止痛药定时用户 · 宠物喂药 · 慢性病患者',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:180px;text-align:center"><div class="m-screen" style="display:inline-block;background:#1a2a1a"><div style="font-size:28px;font-weight:700;color:#10b981;font-family:monospace">3.5h</div><div style="font-size:9px;color:#64748b;font-family:monospace;margin-top:2px">距上次服药</div><div style="display:flex;justify-content:center;gap:8px;margin-top:6px"><span class="m-btn accent" style="font-size:.5rem">NEXT 4h</span></div></div></div><div class="m-label">标准螺纹 · 适配大多数药瓶 · CR2032 · 1年续航</div></div></div>',
-    usp:'<b>① 上次开盖计时：</b>LCD 持续显示"距上次服药已过 X 小时"——吃没吃过药一眼就知<br><b>② 兼容标准药瓶：</b>替换原瓶盖即可，不需要专用药盒<br><b>③ 多时段提醒：</b>可设 2/4/6/8/12 小时间隔，到点蜂鸣提醒',
-    comp:'<b>TimerCap</b> — Amazon 401 reviews · $17.50/2pk<br>仅 82 个竞品 listing——竞争极薄',
-    ai:'固件（低功耗 RTC 计时 + 开盖磁感应检测 + LCD 驱动 + 蜂鸣提醒）· 标准螺纹兼容外壳 · 医药合规包装',
-    patent:'<b>发明方向：</b>一种显示距上次开盖时间的智能药瓶替换盖<br><b>实用新型：</b>兼容标准药瓶的电子计时提醒瓶盖',
-    risk:'<b>低</b> — 电子简单，标准螺纹生产成熟。注意作为"辅助工具"而非"医疗器械"销售',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>TimerCap</th><th>TimeVial</th></tr><tr><td>显示方式</td><td class="win">LCD 实时显示</td><td>LED闪烁</td><td>LED闪烁</td></tr><tr><td>兼容性</td><td class="win">标准螺纹</td><td>标准螺纹</td><td>专用瓶</td></tr><tr><td>多时段</td><td class="win">2/4/6/8/12h</td><td>固定</td><td>固定</td></tr><tr><td>售价</td><td class="win">¥89</td><td>¥125</td><td>¥93</td></tr></table>',
-    size:'直径 35mm · 高度 28mm · 标准药瓶螺纹 · 25g',
-    why:'<div class="why-item">⏱️ <b>吃没吃过一眼就知道</b> — 不用回忆"刚才吃了吗"</div><div class="why-item">🔄 <b>任何药瓶都能用</b> — 标准螺纹替换原盖</div><div class="why-item">👴 <b>老龄化刚需</b> — 中国2.8亿60岁以上人口</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥89 去向</div><div class="waterfall"><span class="wf-bom" style="width:22%">BOM ¥20</span><span class="wf-make" style="width:11%">组装 ¥10</span><span class="wf-ship" style="width:7%">物流 ¥6</span><span class="wf-fee" style="width:15%">佣金 ¥13</span><span class="wf-profit" style="width:45%">利润 ¥40</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥4,000 · 利润率 45%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 药店/养老院试点免费赠送 20 套</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 小红书"给爸妈买的好东西"种草</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第3周</b> — Amazon "pill timer" 关键词 + Etsy 礼品装</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(16,185,129,.12)">👵</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">72岁高血压患者 · 每天吃3种药 · 经常忘记"刚才吃了没有" · 女儿在淘宝上搜索解决方案</div></div>'
-  },
-  'spoon-scale': {
-    icon:'🥄', name:'数字称重量勺', tagline:'挖一勺同时称重 · 0.1g 精度 · 双头可换 · USB-C 充电',
-    tags:['boom'], bom:33, price:109, profit:5200, margin:'48%',
-    users:'烘焙爱好者 · 卡路里计算族 · 咖啡手冲玩家 · 宠物营养品称量',
-    mockup:'<div class="mockup"><div class="m-device"><div class="m-body" style="min-width:200px"><div style="display:flex;align-items:center;gap:12px"><div class="m-screen" style="min-width:100px;text-align:center"><div style="font-size:28px;font-weight:800;color:#00d4ff;font-family:monospace">12.3<span style="font-size:14px">g</span></div><div style="font-size:8px;color:#64748b;font-family:monospace">TARE · UNIT</div></div><div style="width:70px;height:50px;background:rgba(255,255,255,.04);border-radius:8px 8px 20px 8px;border:1px solid rgba(255,255,255,.1)"></div></div><div style="display:flex;justify-content:center;gap:12px;margin-top:8px"><span class="m-btn accent">TARE</span><span class="m-btn">g/oz</span></div></div><div class="m-label">可换大小勺头 · 不锈钢 · HX711 ADC · USB-C</div></div></div>',
-    usp:'<b>① 边挖边称：</b>挖一勺立即显示重量，不需要先放秤上——烘焙效率翻倍<br><b>② 双头可换：</b>大小两个不锈钢勺头，粉料/液体都适用<br><b>③ 0.1g 精度：</b>满足咖啡、烘焙、药品的精确称量需求',
-    comp:'<b>Dioche</b> — Amazon US $12.99 · 4.2★ · 16 reviews<br>386 个 listing · 月销 100+ 增长中',
-    ai:'固件（HX711 称重 + 去皮 + 单位切换 + 自动关机）· 双头互换结构设计 · 不锈钢勺头',
-    patent:'<b>实用新型：</b>一种可更换勺头的数字称重量勺',
-    risk:'<b>低-中</b> — 市场正处于增长期。注意称重精度在 0.1g 级别的结构稳定性',
-    compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Dioche</th><th>普通电子秤</th></tr><tr><td>一体化</td><td class="win">挖+称一体</td><td>挖+称一体</td><td>分离</td></tr><tr><td>勺头</td><td class="win">双头可换</td><td>单头固定</td><td>无勺头</td></tr><tr><td>充电</td><td class="win">USB-C</td><td>纽扣电池</td><td>USB-C</td></tr><tr><td>售价</td><td>¥109</td><td>¥93</td><td>¥29-99</td></tr></table>',
-    size:'总长 180mm · 勺头直径 35mm · 65g',
-    why:'<div class="why-item">⚡ <b>挖和称一步完成</b> — 不用在勺子和秤之间来回跑</div><div class="why-item">🔄 <b>换头设计</b> — 一勺两用，粉和液体都行</div><div class="why-item">📱 <b>USB-C 告别纽扣电池</b> — 竞品还在用一次性电池</div>',
-    pricing:'<div style="font-size:.65rem;color:var(--txtm);margin-bottom:6px">售价 ¥109 去向</div><div class="waterfall"><span class="wf-bom" style="width:30%">BOM ¥33</span><span class="wf-make" style="width:11%">组装 ¥12</span><span class="wf-ship" style="width:7%">物流 ¥8</span><span class="wf-fee" style="width:15%">佣金 ¥16</span><span class="wf-profit" style="width:37%">利润 ¥40</span></div><div style="font-size:.55rem;color:var(--txtm);margin-top:4px">100套净利润 ¥4,000 · 利润率 37%</div>',
-    gtm:'<div class="ro-step"><div class="dot"></div><div class="txt"><b>第1周</b> — 烘焙博主/咖啡 KOL 送测</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第2周</b> — 小红书"烘焙神器"话题投放</div></div><div class="ro-step"><div class="dot"></div><div class="txt"><b>第4周</b> — Amazon "digital measuring spoon" 上架</div></div>',
-    persona:'<div class="persona"><div class="avatar" style="background:rgba(245,158,11,.12)">👩‍🍳</div><div style="font-size:.65rem;color:var(--txtd);line-height:1.5">32岁烘焙博主 · 每次做蛋糕要称七八种材料 · 在电子秤和勺子之间来回切换烦死了 · 愿意为效率工具支付溢价</div></div>'
-  },
-};
-
-var key = new URLSearchParams(window.location.search).get('s') || 'decibel';
-var d = S[key] || S['decibel'];
-var tgHTML = d.tags.map(function(t){return t==='boom'?'<span class="t-boom">🔥 爆品路线</span>':'<span class="t-patent">📜 专利路线</span>';}).join('');
+var key = new URLSearchParams(window.location.search).get('s') || D[0].id;
+var d = S[key] || S[D[0].id];
+var tgHTML = (d.tags||[]).map(function(t){return t==='boom'?'<span class="t-boom">&#128165; 爆品路线</span>':'<span class="t-patent">&#128220; 专利路线</span>';}).join('');
 document.title = d.name+' · Product Lab';
 
 var html = '<div class="header">'+
-  '<span class="icon">'+d.icon+'</span>'+
-  '<h1>'+d.name+'</h1>'+
-  '<p class="tagline">'+d.tagline+'</p>'+
+  '<span class="icon">'+(d.icon||'📦')+'</span>'+
+  '<h1>'+(d.name||'')+'</h1>'+
+  '<p class="tagline">'+(d.tagline||'')+'</p>'+
   '<div class="tags">'+tgHTML+'</div>'+
   '</div>'+
-
-  '<div class="concept-box"><h3>产品概念图</h3>'+(d.mockup||d.svg||'')+'</div>'+
-
   '<div class="grid3">'+
-  '<div class="mcard"><div class="ml">BOM 成本</div><div class="mv">¥'+d.bom+'<span class="unit">/套</span></div></div>'+
-  '<div class="mcard"><div class="ml">建议售价</div><div class="mv">¥'+d.price+'<span class="unit">/套</span></div></div>'+
-  '<div class="mcard"><div class="ml">100套预估利润</div><div class="mv">¥'+d.profit+'<span class="unit"> 元</span></div><div class="sub">利润率 '+d.margin+'</div></div>'+
+  '<div class="mcard"><div class="ml">BOM 成本</div><div class="mv">¥'+(d.bom||0)+'<span class="unit">/套</span></div></div>'+
+  '<div class="mcard"><div class="ml">建议售价</div><div class="mv">¥'+(d.price||0)+'<span class="unit">/套</span></div></div>'+
+  '<div class="mcard"><div class="ml">100套预估利润</div><div class="mv">¥'+(d.profit||0)+'<span class="unit"> 元</span></div><div class="sub">利润率 '+(d.margin||'')+'</div></div>'+
   '</div>'+
-
-  '<div class="mcard" style="margin-bottom:.8rem"><div class="ml">独特卖点 (USP)</div><div class="txt">'+d.usp+'</div></div>'+
-  '<div class="mcard" style="margin-bottom:.8rem"><div class="ml">竞品格局</div><div class="txt">'+d.comp+'</div></div>'+
-  '<div class="grid2">'+
-  '<div class="mcard"><div class="ml">AI 可以做什么</div><div class="txt" style="font-size:.7rem">'+d.ai+'</div></div>'+
-  '<div class="mcard"><div class="ml">目标用户</div><div class="txt" style="font-size:.7rem">'+d.users+'</div></div>'+
-  '</div>'+
-  '<div class="grid2">'+
-  '<div class="mcard"><div class="ml">专利评估</div><div class="txt" style="font-size:.7rem">'+d.patent+'</div></div>'+
-  '<div class="mcard"><div class="ml">风险评估</div><div class="txt" style="font-size:.7rem">'+d.risk+'</div></div>'+
-  '</div>'+
-
-  '<div class="mcard" style="margin-bottom:.8rem"><div class="ml">竞品功能对比</div><div class="txt">'+(d.compare||'<span style="color:var(--txtm)">即将更新</span>')+'</div></div>'+
-  '<div class="grid2">'+
-  '<div class="mcard"><div class="ml">产品尺寸</div><div class="txt" style="font-size:.7rem;color:var(--cyan)">'+(d.size||'查看概念图')+'</div></div>'+
-  '<div class="mcard"><div class="ml">为什么选这款</div><div class="txt" style="font-size:.7rem;line-height:2">'+(d.why||'<span style="color:var(--txtm)">即将更新</span>')+'</div></div>'+
-  '</div>'+
-  '<div class="grid2">'+
-  '<div class="mcard"><div class="ml">定价拆解</div>'+(d.pricing||'<span style="font-size:.7rem;color:var(--txtm)">即将更新</span>')+'</div>'+
-  '<div class="mcard"><div class="ml">目标用户画像</div>'+(d.persona||'<span style="font-size:.7rem;color:var(--txtm)">即将更新</span>')+'</div>'+
-  '</div>'+
-  '<div class="mcard" style="margin-bottom:.8rem"><div class="ml">上市路径</div><div style="margin-top:4px">'+(d.gtm||'<span style="font-size:.7rem;color:var(--txtm)">即将更新</span>')+'</div></div>'+
-  '<div class="back-link"><a href="index.html">&larr; 返回所有方案</a></div>';
+  '<div style="text-align:center;padding:2rem;color:var(--txtm);font-size:.8rem">'+
+  '🔄 完整详情数据正在重建中...<br>基础数据（BOM/售价/利润）已就绪<br><br>'+
+  '<a href="index.html" style="color:var(--cyand);text-decoration:none;font-size:.85rem">&larr; 返回首页</a>'+
+  '</div>';
 
 document.getElementById('detail').innerHTML = html;
 </script>
