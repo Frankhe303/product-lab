@@ -92,6 +92,12 @@ var S = {
     ai:'固件（ADC 音频采样 + A/C 加权滤波器 + 峰值保持算法 + 自动校准）· PCB 模拟前端降噪布局 · 外壳声学口设计 · 品牌包装与产品文案',
     patent:'<b>发明方向：</b>一种基于情绪化图形反馈的环境噪声监测及分级预警方法<br><b>实用新型：</b>一种带婴儿模式与夜间峰值记忆的便携式噪声监测装置<br><b>新颖点：</b>将分贝值映射为人类可识别表情符号 + 自适应阈值算法',
     risk:'<b>低</b> — 多场景需求支撑，电子设计成熟。主要技术挑战为工厂校准（可由 AI 编写自动校准固件解决）。竞品众多但无一具备情绪化反馈功能，差异化明确'
+    difficulty:'⭐⭐ 简单 | BOM ¥32 | CE/FCC | 6周上市 | 🟢低风险',
+    bomDetail:'MEMS麦克风 ¥6 + OLED ¥10 + MCU ¥3 + 电池 ¥4 + PCB ¥5 + 外壳 ¥4',
+    cert:'CE/FCC 标准认证',
+    timeline:'6周：PCB打样2w → 外壳模具2w → 校准调优1w → 小批量1w',
+    riskLevel:'🟢 低 — 多场景需求支撑，差异化明确',
+    channel:'母婴博主 → 办公用品 → Amazon noise meter',
   },
   posture: {
     icon:'🧘', name:'智能姿态提醒器', tagline:'不用 App、不用手机——夹衣领上，驼背就温柔振动提醒',
@@ -103,6 +109,12 @@ var S = {
     ai:'固件（加速度计姿态向量追踪 + 自适应基线校准 + 振动模式生成 + 超低功耗休眠）· 超微型 PCB 布局（15mm×25mm）· 夹子外壳设计 · 健康礼品包装',
     patent:'<b>发明方向：</b>一种无需外部设备的独立穿戴式姿态监测及自适应提醒方法<br><b>实用新型：</b>一种免 App 的微型防驼背振动提醒装置<br><b>新颖点：</b>完全脱离手机的独立自校准算法，与 Upright GO 形成明确技术代差',
     risk:'<b>低-中</b> — 远程办公趋势推动需求持续增长。功效争议需注意：定位"工具非疗法"。BOM 仅 ¥25.5 且无 App 开发成本，试错风险极低'
+    difficulty:'⭐⭐ 中等 | BOM ¥25.5 | 无认证 | 6周上市 | 🟢低风险',
+    bomDetail:'加速度计MPU6050 ¥5 + 振动马达 ¥2 + MCU ¥3 + 电池 ¥4 + PCB ¥4 + 夹子外壳 ¥5 + 杂项 ¥2.5',
+    cert:'无特殊认证',
+    timeline:'6周：微型PCB 2w → 外壳模具 2w → 小批量 2w',
+    riskLevel:'🟢 低 — 远程办公趋势推动，健康礼品定位精准',
+    channel:'办公用品/数码礼品 → 企业采购 → Amazon "posture corrector no app"',
   },
   angle: {
     icon:'📐', name:'迷你数字角度仪', tagline:'3 颗钕磁铁强力吸附 · OLED 仿真气泡动画 · 蜂鸣 0/45/90°',
@@ -114,6 +126,12 @@ var S = {
     ai:'固件（MPU6050 6 轴传感器 I2C + 互补滤波角度融合 + 蜂鸣触发逻辑）· 紧凑 PCB 布局 · CNC 铝底座设计 · 工具品牌包装',
     patent:'<b>发明方向：</b>一种基于音频反馈的数字水平校准方法及装置<br><b>实用新型：</b>一种带音频播报功能的磁吸式便携数字角度仪<br><b>新颖点：</b>音频+视觉+磁吸三合一交互在工具品类中无先例',
     risk:'<b>低-中</b> — 利基市场总盘子小于消费电子，但精准用户在工具上花钱不手软。建议同时走五金专业渠道 + Amazon，品牌化后可卖给大厂'
+    difficulty:'⭐⭐ 中等 | BOM ¥35 | CE/FCC | 7周上市 | 🟢低-中风险',
+    bomDetail:'MPU6050 ¥5 + OLED ¥12 + 钕磁铁3颗 ¥3 + 蜂鸣器 ¥1 + CNC铝底座 ¥8 + 杂项 ¥6',
+    cert:'CE/FCC 工具类标准认证',
+    timeline:'7周：CNC打样2w → PCB 2w → 外壳开模2w → 小批量1w',
+    riskLevel:'🟢 低-中 — 利基品类忠诚度高，工具用户花钱不手软',
+    channel:'木工论坛/YouTube → 五金渠道 → Amazon "digital angle gauge"',
   },
   'dog-collar': {
     icon:'🐕', name:'LED 宠物夜光项圈', tagline:'USB-C 充电 · RGB 随运动节奏律动 · 遥控找狗强闪模式',
@@ -125,6 +143,12 @@ var S = {
     ai:'固件（RGB LED 动画引擎 + 振动传感器运动检测 + 2.4G 遥控配对 + 锂电池充电管理）· 柔性/硬质 PCB 设计 · IP65 防水电子舱 · 宠物品牌视觉包装',
     patent:'<b>实用新型方向：</b>一种可感测宠物运动强度并自适应调节发光效果的智能项圈。专利点较弱，主要依靠品牌和渠道',
     risk:'<b>中</b> — 尺码退还是主要问题。方案：通用可调尺寸（35-65cm）+ 详细尺码图。情绪购买属性极强，社交媒体平台天然传播素材'
+    difficulty:'⭐⭐ 中等 | BOM ¥29 | IPX5 | 7周上市 | 🟡中风险',
+    bomDetail:'RGB LED灯带 ¥6 + 加速度计 ¥3 + MCU ¥3 + 电池 ¥5 + 编织带 ¥8 + 充电电路 ¥4',
+    cert:'IPX5 防水测试',
+    timeline:'7周：防水设计2w → 织带打样2w → 电子2w → 小批量1w',
+    riskLevel:'🟡 中 — 尺码退货问题需注意，但社交媒体天然传播',
+    channel:'养宠社群 → Amazon "LED dog collar" → 宠物用品店',
   },
   solder: {
     icon:'🔧', name:'迷你 T12 焊台', tagline:'手机大小 · Type-C PD 20V 直接供电 · OLED 实时显示 + 旋钮精准控温',
@@ -136,6 +160,12 @@ var S = {
     ai:'固件（PID 温控算法 + K 型热电偶冷端补偿 + USB PD 协议握手 + OLED 菜单 UI）· 功率级 PCB（注意 MOS 管散热和走线）· 便携外壳设计 · 详细产品说明书',
     patent:'<b>发明方向：</b>一种基于 USB PD 协议的便携式可编程温控焊接工具<br><b>实用新型：</b>一种集成 Type-C PD 供电的掌上式智能焊台<br><b>新颖点：</b>PD 供电 + 迷你化 + 开源固件的组合具备创新性',
     risk:'<b>中</b> — 功率级 PCB 需额外注意散热设计和走线宽度。售后略多于纯消费电子。但用户群体技术性强，自己能排查很多问题'
+    difficulty:'⭐⭐ 中等 | BOM ¥33 | CE/FCC | 7周上市 | 🟡中风险',
+    bomDetail:'T12烙铁头 ¥8 + DC-DC板 ¥6 + OLED ¥8 + Type-C ¥2 + 外壳 ¥6 + 杂项 ¥3',
+    cert:'CE/FCC + 锂电池UN38.3',
+    timeline:'7周：功率PCB 2w → 外壳开模2w → 装配调试2w → 首批1w',
+    riskLevel:'🟡 中 — 功率产品安全，注意散热设计',
+    channel:'极客/创客社群 → 淘宝/天猫 → Amazon "mini T12 soldering station"',
   },
   thermo: {
     icon:'🍔', name:'2 秒速测烧烤温度计', tagline:'折叠探针 · OLED 温度迷你折线图 · 磁吸贴烤炉不占手',
@@ -147,6 +177,12 @@ var S = {
     ai:'固件（MAX6675 热电偶 ADC + 冷端补偿 + 温度曲线 FIFO 缓存 + 磁吸检测 + 休眠算法）· 超薄折叠 PCB · 食品级不锈钢探针 · BBQ 文化品牌包装',
     patent:'<b>实用新型方向：</b>一种带温度实时曲线显示功能的折叠式食品温度计。专利点较弱，主要依靠功能差异化',
     risk:'<b>低-中</b> — ThermoPro 品牌优势极强。靠 Amazon Vine 冷启动获取第一批评价 + 温度折线图功能差异化。BBQ 社区是极度热情的圈子，口碑传播非常快'
+    difficulty:'⭐⭐⭐ 中高 | BOM ¥30.5 | FDA食品接触 | 9周上市 | 🔴中-高风险',
+    bomDetail:'热电偶探头 ¥8 + 高精度ADC ¥5 + OLED ¥8 + 折叠机构 ¥5 + 杂项 ¥4.5',
+    cert:'FDA 食品接触（探头）',
+    timeline:'9周：折叠机构设计3w → 模具3w → 电子2w → 小批量1w',
+    riskLevel:'🔴 中-高 — ThermoPro 霸主地位极强，差异化空间有限',
+    channel:'户外/烧烤博主 → Amazon 避开品牌热词',
   },
   powermeter: {
     icon:'⚡', name:'USB 迷你功率计', tagline:'Type-C 公母直插 · 0.96" OLED 四合一显示 · V/A/W/mAh',
@@ -158,6 +194,12 @@ var S = {
     ai:'固件（INA219 I²C 电流采样 + OLED 四屏切换 UI + 累计电量 EEPROM 存储）· 超小双面 PCB 布局（22×12mm）· 铝合金 CNC 外壳 · 数码品牌全套视觉',
     patent:'<b>实用新型方向：</b>一种直插式双面 OLED 显示的 USB 功率及累计电量监测装置<br><b>新颖点：</b>双面 OLED 嵌入 + 累计电量统计功能具备一定新颖性',
     risk:'<b>中</b> — 标品竞争激烈，维简/FNIRSI 有一定忠实用户。靠颜值 + 品牌化 + 铝合金外壳打出差异化。BOM 最低仅 ¥21.5，试错成本极低'
+    difficulty:'⭐ 极简 | BOM ¥21.5 | CE/FCC | 4周上市 | 🟡中风险',
+    bomDetail:'Type-C插座 ¥2 + INA219 ¥4 + OLED ¥8 + MCU ¥3 + PCB ¥3 + 杂项 ¥1.5',
+    cert:'CE/FCC',
+    timeline:'4周：PCB打样2w → 固件1w → 小批量1w',
+    riskLevel:'🟡 中 — 价格战激烈，需靠OLED+品牌溢价',
+    channel:'极客/数码爱好者 → Amazon "USB power meter OLED"',
   },
   'eink-clock': {
     icon:'🕳️', name:'E-Ink 桌面温湿度时钟', tagline:'超市价签同款墨水屏 · 护眼零蓝光 · 纽扣电池续航半年',
@@ -169,6 +211,12 @@ var S = {
     ai:'固件（E-Ink 局部刷新驱动 + HTU21D/SHT30 传感器 I²C 读取 + RTC 时钟 + 超低功耗 μA 级休眠）· 极简外壳设计 · 日系/北欧风品牌包装',
     patent:'无显著可专利点。注意 E-Ink 屏货源稳定性——建议采用 Waveshare 或 Good Display 正规渠道模组，避免依赖超市价签拆机件',
     risk:'<b>低</b> — 电子设计极其简单，几乎零售后。主要风险为 E-Ink 屏供应链。建议首发即确认稳定供货渠道'
+    difficulty:'⭐ 简单 | BOM ¥26 | 无认证 | 5周上市 | 🟢低风险',
+    bomDetail:'E-Ink屏幕 ¥14 + 温湿度SHT30 ¥4 + MCU ¥3 + 纽扣电池 ¥1.5 + 外壳 ¥2.5 + 杂项 ¥1',
+    cert:'无特殊要求',
+    timeline:'5周：电子方案2w → 外壳模具2w → 小批量1w',
+    riskLevel:'🟢 低 — 电子设计极简单，几乎零售后。注意E-Ink屏供应链',
+    channel:'有品/造作 → E-Ink爱好者社群 → Amazon',
   },
   luggage: {
     icon:'🛗', name:'迷你数字行李秤', tagline:'预置 20+ 航司免费行李限额 · 超重红绿 LED 一眼判断',
@@ -180,6 +228,12 @@ var S = {
     ai:'固件（HX711 24-bit ADC 压力传感器读取 + kg/lb 单位切换 + 20+ 航司限额预设菜单 + 自动关机）· 人体工学手持外壳 · 旅行礼品品牌包装',
     patent:'<b>实用新型：</b>一种预置航空行李限额数据并具备超重判断功能的便携式电子行李秤<br><b>新颖点：</b>航司限额预置 + LED 超重判断是真实差异化，所有已知竞品均无此功能',
     risk:'<b>中</b> — 低价位段竞争极其血腥（AliExpress ¥15）。利润率仅 33%，需靠功能差异化 + 品牌溢价支撑 ¥69 价位，需要走量'
+    difficulty:'⭐⭐ 中等 | BOM ¥25 | 计量 | 7周上市 | 🟡中风险',
+    bomDetail:'称重传感器 ¥6 + HX711 ¥3 + MCU ¥3 + OLED ¥6 + 提手/外壳 ¥5 + 杂项 ¥2',
+    cert:'计量认证OIML（非强制）',
+    timeline:'7周：结构设计2w → 传感器校准2w → 模具2w → 首批1w',
+    riskLevel:'🟡 中 — ¥9.49竞品把价格打穿了，利润空间有限',
+    channel:'差旅博主 → 旅行配件 → Amazon 避开低价区',
   },
   soil: {
     icon:'🌱', name:'3 合 1 土壤检测仪', tagline:'湿度 · pH · 光照三合一 LCD · 拔出保留读数 · 笑脸健康指数',
@@ -191,6 +245,12 @@ var S = {
     ai:'固件（不锈钢双探针 ADC 湿度采样 + pH 电极电位读取 + 光敏电阻 + 定制三读 LCD 驱动 + 自动关机）· 人体工学手柄外壳 · 植物主题品牌包装',
     patent:'无显著可专利点。利润最薄（31%），需要走量。BOM 最低（¥21.5），是"先跑通流程再换高利润产品"的最佳试验品',
     risk:'<b>低</b> — 市场验证最充分、电子设计最简单、BOM 最低。利润薄但绝对能卖。核心是靠"养护指南卡片"+"笑脸 emoji"打出与 ¥9.99 杂牌的差异'  },
+    difficulty:'⭐ 简单 | BOM ¥21.5 | 无认证 | 5周上市 | 🟢低风险',
+    bomDetail:'湿度传感器 ¥5 + pH电极 ¥6 + 光敏电阻 ¥1 + ADC ¥2 + MCU ¥3 + 外壳 ¥3 + 杂项 ¥1.5',
+    cert:'无特殊要求',
+    timeline:'5周：探针模具2w → 电子2w → 小批量1w',
+    riskLevel:'🟢 低 — 市场验证充分，BOM低，但利润率仅31%偏薄',
+    channel:'园艺博主 → Amazon "soil tester" → 绿植社群',
 'pill-cap': {
     icon:'💊', name:'智能药瓶计时盖', tagline:'替换标准药瓶盖 · LCD 显示上次开盖时间 · 定时蜂鸣提醒',
     tags:['boom','patent'], bom:20, price:89, profit:4800, margin:'54%',
@@ -201,6 +261,12 @@ var S = {
     ai:'固件（低功耗 RTC 计时 + 开盖磁感应检测 + LCD 驱动 + 蜂鸣提醒）· 标准螺纹兼容外壳',
     patent:'<b>发明方向：</b>一种显示距上次开盖时间的智能药瓶替换盖<br><b>实用新型：</b>兼容标准药瓶的电子计时提醒瓶盖',
     risk:'<b>低</b> — 电子简单，标准螺纹生产成熟。注意作为辅助工具而非医疗器械销售',
+    difficulty:'⭐ 简单 | BOM ¥20 | 无认证 | 5周上市 | 🟢低风险',
+    bomDetail:'LCD段码屏 ¥6 + CR2032 ¥1.5 + MCU ¥3 + PCBA ¥4 + 瓶盖外壳 ¥4 + 杂项 ¥1.5',
+    cert:'无特殊认证',
+    timeline:'5周：公模改尺寸1w → 电子2w → 小批量2w',
+    riskLevel:'🟢 低 — 送礼属性强，情感购买驱动',
+    channel:'抖音孝心经济 → 天猫医药 → Amazon "pill cap timer"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>TimerCap</th></tr><tr><td>显示方式</td><td class="win">LCD 实时</td><td>LED闪烁</td></tr><tr><td>多时段</td><td class="win">2/4/6/8/12h</td><td>固定</td></tr></table>',
     size:'直径 35mm · 高度 28mm · 标准螺纹 · 25g',
     why:'<div class="why-item">⏱️ <b>吃没吃过一眼就知道</b> — 不用回忆</div><div class="why-item">🔄 <b>任何药瓶都能用</b> — 标准螺纹替换原盖</div><div class="why-item">👴 <b>老龄化刚需</b> — 中国2.8亿60岁以上人口</div>',
@@ -219,6 +285,12 @@ var S = {
     ai:'固件（HX711 称重 + 去皮 + 单位切换 + 自动关机）· 双头互换结构设计 · 不锈钢勺头',
     patent:'<b>实用新型：</b>一种可更换勺头的数字称重量勺',
     risk:'<b>低-中</b> — 市场正处于增长期。注意称重精度在 0.1g 级别的结构稳定性',
+    difficulty:'⭐⭐ 中等 | BOM ¥33 | FDA食品接触 | 7周上市 | 🟢低-中风险',
+    bomDetail:'称重传感器 ¥6 + HX711 ¥3 + MCU ¥3 + OLED ¥8 + 双头结构 ¥8 + 杂项 ¥5',
+    cert:'FDA 食品接触（勺头）',
+    timeline:'7周：双头结构3w → 模具2w → 电子1w → 首批1w',
+    riskLevel:'🟢 低-中 — 市场增长期，精度在潮湿环境可能漂移',
+    channel:'厨房/咖啡博主 → Amazon "digital measuring spoon"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Dioche</th></tr><tr><td>一体化</td><td class="win">挖+称一体</td><td>挖+称一体</td></tr><tr><td>勺头</td><td class="win">双头可换</td><td>单头固定</td></tr><tr><td>充电</td><td class="win">USB-C</td><td>纽扣电池</td></tr></table>',
     size:'总长 180mm · 勺头直径 35mm · 65g',
     why:'<div class="why-item">⚡ <b>挖和称一步完成</b> — 不用在勺子和秤之间来回跑</div><div class="why-item">🔄 <b>换头设计</b> — 一勺两用</div><div class="why-item">📱 <b>USB-C 告别纽扣电池</b> — 竞品还在用一次性电池</div>',
@@ -237,6 +309,12 @@ var S = {
     ai:'固件（霍尔脉冲计数 + 卡路里估算 + 蓝牙 GATT 协议 + LCD 多屏切换）· 手柄人体工学 · 钢缆轴承结构',
     patent:'<b>实用新型：</b>基于霍尔效应的跳绳计数装置',
     risk:'<b>低-中</b> — 健身品类退货率略高（15%）但售后简单',
+    difficulty:'⭐⭐ 中等 | BOM ¥34 | 蓝牙BQB+CE/FCC | 8周上市 | 🟢低-中风险',
+    bomDetail:'霍尔传感器 ¥2 + MCU ¥3 + LCD ¥5 + 蓝牙模块 ¥6 + 电池 ¥5 + 手柄结构 ¥10 + 杂项 ¥3',
+    cert:'蓝牙BQB + CE/FCC',
+    timeline:'8周：手柄模具3w → 电子+蓝牙2w → 认证2w → 首批1w',
+    riskLevel:'🟢 低-中 — 健身品类退货率15%，APP成本需考虑',
+    channel:'健身博主 → Amazon "smart jump rope" → 运动电商',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Tangram</th></tr><tr><td>感应方式</td><td class="win">霍尔磁感应</td><td>滚珠开关</td></tr><tr><td>精度</td><td class="win">±1次</td><td>±5-10次</td></tr><tr><td>售价</td><td class="win">¥89</td><td>¥228</td></tr></table>',
     size:'手柄 150×28mm · 总长 3m · 180g',
     why:'<div class="why-item">🎯 <b>霍尔感应不漏记</b> — 比机械式跳绳准一个数量级</div><div class="why-item">📱 <b>有蓝牙但不依赖</b> — LCD 屏直接看数据</div><div class="why-item">💰 <b>只要 Tangram 三分之一的价格</b></div>',
@@ -255,6 +333,12 @@ var S = {
     ai:'固件（VL53L1X I2C 激光测距 + LCD 显示 + 单位切换 + 历史记录）· 铝合金 CNC 外壳',
     patent:'<b>外观专利：</b>钥匙扣形态的激光测距仪<br><b>实用新型：</b>集成 USB-C 充电的微型激光测距装置',
     risk:'<b>中</b> — 博世品牌强大。靠钥匙扣形态+金属质感+USB-C组合打出差异化',
+    difficulty:'⭐⭐⭐ 中高 | BOM ¥36.5 | FDA激光+CE/FCC | 9周上市 | 🟡中风险',
+    bomDetail:'激光测距模块 ¥18 + MCU ¥3 + OLED ¥8 + 铝合金CNC壳 ¥6 + 杂项 ¥1.5',
+    cert:'FDA激光Class2 + CE/FCC',
+    timeline:'9周：激光校准3w → 模具3w → 认证2w → 首批1w',
+    riskLevel:'🟡 中 — 博世品牌强，靠钥匙扣+质感差异化',
+    channel:'EDC玩家 → 工具渠道 → Amazon "keychain laser measure"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>博世 GLM100</th></tr><tr><td>体积</td><td class="win">火柴盒大小</td><td>5倍大</td></tr><tr><td>外壳</td><td class="win">铝合金</td><td>工程塑料</td></tr><tr><td>充电</td><td class="win">USB-C</td><td>AAA电池</td></tr></table>',
     size:'42×22×10mm · 火柴盒大小 · 25g · 钥匙圈孔',
     why:'<div class="why-item">🔑 <b>随身携带</b> — 挂钥匙上，随时掏出来量</div><div class="why-item">✨ <b>铝合金质感</b> — 不像工具像配饰</div><div class="why-item">🔌 <b>USB-C 统一充电</b> — 和手机用一根线</div>',
@@ -273,6 +357,12 @@ var S = {
     ai:'固件（NTC PID 温控 + LCD 显示 + 升压输出 + 三段温控）· 鹅卵石造型外壳',
     patent:'<b>实用新型：</b>带实时温度显示和 PID 恒温的双面暖手宝',
     risk:'<b>低</b> — 冬季爆品，季节性明显。需提前 3 个月备货（8-9 月下单）',
+    difficulty:'⭐⭐ 中等 | BOM ¥34 | UN38.3+CE/FCC | 8周上市 | 🟡中风险',
+    bomDetail:'锂电池 ¥10 + 加热片 ¥4 + MCU ¥3 + LCD ¥5 + 铝合金外壳 ¥8 + 充电电路 ¥4',
+    cert:'UN38.3（锂电池）+ CE/FCC',
+    timeline:'8周：结构2w → 电子2w → 认证2w → 备货2w（需提前3个月备货）',
+    riskLevel:'🟡 中 — 季节性极强，需提前备货',
+    channel:'冬季前3个月备货 → Amazon/淘宝 "hand warmer"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Hotdot</th></tr><tr><td>温度显示</td><td class="win">LCD 实时°C</td><td>3档LED</td></tr><tr><td>充电宝</td><td class="win">5000mAh</td><td>无</td></tr><tr><td>售价</td><td>¥89</td><td>¥120/2个</td></tr></table>',
     size:'82×58×24mm · 鹅卵石形 · 130g',
     why:'<div class="why-item">🌡️ <b>精确到 1°C</b> — 不像竞品只有模糊的三档</div><div class="why-item">🔋 <b>夏天当充电宝</b> — 不闲置，全年有用</div><div class="why-item">🤲 <b>双面加热</b> — 两只手同时暖</div>',
@@ -291,6 +381,12 @@ var S = {
     ai:'固件（CCS811 I2C + eCO2 估算算法 + SHT30 + LED 环驱动 + 蜂鸣报警）',
     patent:'<b>发明方向：</b>基于 VOC 传感器的便携式 eCO2 估算方法<br><b>实用新型：</b>带交通灯视觉反馈的便携空气品质监测装置',
     risk:'<b>中</b> — VOC 传感器精度不如 NDIR，但够用级别对消费者已足够。注意与 Temtop 差异化定位',
+    difficulty:'⭐⭐ 中等 | BOM ¥39 | CE/FCC | 7周上市 | 🟡中风险',
+    bomDetail:'SGP30 VOC传感器 ¥12 + OLED ¥8 + 蜂鸣器 ¥1 + 交通灯环 ¥4 + 外壳 ¥8 + 杂项 ¥6',
+    cert:'CE/FCC，传感器基线校准说明',
+    timeline:'7周：传感器校准2w → 电子2w → 外壳模具2w → 首批1w',
+    riskLevel:'🟡 中 — VOC估算CO2精度不如NDIR，需标注"估算值"',
+    channel:'办公室/母婴博主 → Amazon "CO2 monitor portable"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Temtop</th></tr><tr><td>CO2 方案</td><td class="win">VOC 估算</td><td>NDIR 红外</td></tr><tr><td>视觉反馈</td><td class="win">LED 交通灯环</td><td>数字</td></tr><tr><td>价格</td><td class="win">¥149</td><td>¥200</td></tr></table>',
     size:'55×35×15mm · 打火机大小 · 35g',
     why:'<div class="why-item">🚦 <b>交通灯一眼就懂</b> — 不用看数字，颜色即答案</div><div class="why-item">🧠 <b>保持头脑清醒</b> — CO2 高了人会变迟钝</div><div class="why-item">💰 <b>比 NDIR 方案便宜 30%</b> — 够用就好</div>',
@@ -309,6 +405,12 @@ var S = {
     ai:'固件（PIR 感应 + UV LED 定时 + 风扇驱动 + LCD 倒计时 + 低功耗）· 壁挂外壳 · 磁吸结构',
     patent:'<b>发明方向：</b>集成人体感应、风扇干燥和倒计时显示的壁挂式牙刷消毒装置',
     risk:'<b>低-中</b> — 头部竞品销量大（Bril 6.6K reviews）但竞争薄（198 listing）。差异化空间巨大',
+    difficulty:'⭐⭐ 中等 | BOM ¥38.5 | UV安全+3C | 9周上市 | 🟡低-中风险',
+    bomDetail:'UV-C LED ¥8 + 人体感应 ¥3 + 风扇 ¥3 + MCU ¥3 + 外壳 ¥12 + 电源 ¥6 + 杂项 ¥3.5',
+    cert:'UV-C安全IEC 62471 + 3C',
+    timeline:'9周：UV安全设计3w → 模具3w → 认证2w → 首批1w',
+    riskLevel:'🟡 低-中 — UV-C安全认证是关键关卡',
+    channel:'家居/母婴博主 → 牙刷消毒品类 → 比Bril多加风扇干燥',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>Bril</th></tr><tr><td>自动感应</td><td class="win">PIR 人体感应</td><td>手动</td></tr><tr><td>干燥风扇</td><td class="win">微型风扇</td><td>无</td></tr><tr><td>售价</td><td>¥119</td><td>¥214</td></tr></table>',
     size:'180×65×45mm · 遥控器大小 · 200g · 磁吸壁挂',
     why:'<div class="why-item">🚶 <b>走近自动消毒</b> — 不需要碰任何按钮</div><div class="why-item">💨 <b>风扇干燥</b> — 先干燥再杀菌，效果翻倍</div><div class="why-item">🧲 <b>磁吸免打孔</b> — 租房也能装</div>',
@@ -327,6 +429,12 @@ var S = {
     ai:'固件（3 轴加速度计刹车检测算法 + COB LED 驱动 + 转向灯控制 + 低功耗）· IPX6 防水外壳',
     patent:'<b>发明方向：</b>基于加速度计的自行车自动刹车灯检测方法<br><b>实用新型：</b>集成无线转向灯的加速度计刹车感应尾灯',
     risk:'<b>中</b> — 需在真实骑行环境中调优刹车检测算法。IPX6 防水是必须项',
+    difficulty:'⭐⭐⭐ 中高 | BOM ¥37 | IPX6+CE/FCC+SRRC | 9周上市 | 🟡中风险',
+    bomDetail:'加速度计LIS2DH ¥5 + COB LED ¥6 + 无线模块 ¥5 + MCU ¥3 + 电池 ¥6 + IPX6外壳 ¥10 + 杂项 ¥2',
+    cert:'IPX6防水 + CE/FCC + 无线SRRC',
+    timeline:'9周：IPX6结构3w → 天线调试2w → 认证2w → 首批2w',
+    riskLevel:'🟡 中 — 需真实骑行环境调优刹车算法，IPX6是硬门槛',
+    channel:'骑行社群送测 → 外卖骑手群 → Amazon "bike brake light"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>WSDCAM</th></tr><tr><td>刹车感应</td><td class="win">加速度计自动</td><td>手动</td></tr><tr><td>防水</td><td>IPX6</td><td>IPX4</td></tr><tr><td>售价</td><td>¥129</td><td>¥235</td></tr></table>',
     size:'55×28×18mm · 打火机大小 · 45g · IPX6',
     why:'<div class="why-item">🛑 <b>刹车自动爆闪</b> — 和汽车一样安全</div><div class="why-item">⬅️➡️ <b>无线转向灯</b> — 不用挥手示意</div><div class="why-item">💧 <b>IPX6 防水</b> — 暴雨也不怕</div>',
@@ -345,6 +453,12 @@ var S = {
     ai:'固件（NTC 热敏电阻 ADC + 三色 LED 驱动 + 超低功耗休眠）· 食品级硅胶成型 · 弹性结构设计',
     patent:'<b>★★★★★ 极高：</b>可拆卸硅胶环+电子温度指示的组合是全新品类<br><b>发明方向：</b>一种可适配标准奶瓶的弹性电子温度指示环',
     risk:'<b>低</b> — BOM 最低 ¥14 · 利润最高 61% · 无直接竞品 · 市场巨大',
+    difficulty:'⭐ 极简 | BOM ¥14 | 食品级硅胶 | 4周上市 | 🟢极低风险',
+    bomDetail:'NTC热敏电阻 ¥2 + 3色LED ¥1 + CR2032 ¥1.5 + 硅胶环 ¥5 + PCB ¥3 + 杂项 ¥1.5',
+    cert:'食品级硅胶FDA/GB 4806',
+    timeline:'4周：硅胶开模2w → PCB打样手焊100套1w → 送测上线1w',
+    riskLevel:'🟢 极低 — BOM最低¥14，首批500套总投入<¥10,000',
+    channel:'小红书母婴种草 → 天猫/京东 → Amazon "baby bottle thermometer"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>智能奶瓶</th><th>变色套</th></tr><tr><td>兼容性</td><td class="win">任何奶瓶</td><td>专用瓶</td><td>任何奶瓶</td></tr><tr><td>精度</td><td class="win">±1°C 电子</td><td>±1°C</td><td>±10°C</td></tr><tr><td>夜视</td><td class="win">LED 发光</td><td>背光</td><td>不可见</td></tr><tr><td>售价</td><td class="win">¥69</td><td>¥200+</td><td>¥15</td></tr></table>',
     size:'拉伸后直径 40-80mm · 宽度 25mm · 15g · 食品级硅胶',
     why:'<div class="why-item">🌙 <b>凌晨 3 点不开灯就知道温度</b> — LED 发光，黑暗中一眼确认</div><div class="why-item">🔄 <b>任何奶瓶都能用</b> — 不需要花 ¥200+ 买专用智能奶瓶</div><div class="why-item">💰 <b>BOM 只要 ¥14</b> — 20 个方案里最低，利润最高</div>',
@@ -363,6 +477,12 @@ var S = {
     ai:'固件（电容水位感应 + 运行时间追踪 + LED 环 + 蜂鸣提醒）· 夹子外壳 · 防水密封',
     patent:'<b>★★★★★ 极高：</b>宠物饮水机监控配件是全新品类<br><b>发明方向：</b>基于电容感应的宠物饮水机水位及滤芯寿命监控方法',
     risk:'<b>低-中</b> — 新产品品类需要教育市场。但宠物科技赛道持续增长，先发优势巨大',
+    difficulty:'⭐ 简单 | BOM ¥24.5 | 无认证 | 5周上市 | 🟡低-中风险',
+    bomDetail:'电容感应PCB ¥6 + 3色LED环 ¥4 + 蜂鸣器 ¥1.5 + CR2450 ¥2 + 夹子外壳 ¥6 + 杂项 ¥5',
+    cert:'无特殊认证，IPX4防溅即可',
+    timeline:'5周：3D打印壳1w → 电子打样1w → 固件调试1w → 小批量2w',
+    riskLevel:'🟡 低-中 — 需教育市场，宠物社群传播力强',
+    channel:'豆瓣猫组/小红书送测 → 宠物博主 → Amazon "pet fountain accessory"',
     compare:'<table class="comp-table"><tr><th></th><th class="us">EldCare</th><th>现有方案</th></tr><tr><td>水位监控</td><td class="win">电容非接触</td><td>人工检查</td></tr><tr><td>滤芯提醒</td><td class="win">运行时间追踪</td><td>人工记</td></tr><tr><td>售价</td><td>¥89</td><td>无竞品</td></tr></table>',
     size:'45×25×15mm · 夹子结构 · 30g · CR2450 电池',
     why:'<div class="why-item">🐱 <b>猫不爱喝变质水</b> — 水位低了猫就不喝了</div><div class="why-item">🔄 <b>不用每天检查水位</b> — LED 灯环一眼判断</div><div class="why-item">💡 <b>品类首创</b> — 无竞品，先入者通吃</div>',
@@ -401,6 +521,19 @@ var html = '<div class="header">'+
   '<div class="grid2">'+
   '<div class="mcard"><div class="ml">专利评估</div><div class="txt" style="font-size:.7rem">'+d.patent+'</div></div>'+
   '<div class="mcard"><div class="ml">风险评估</div><div class="txt" style="font-size:.7rem">'+d.risk+'</div></div>'+
+'<div class="section-title" style="font-size:.9rem;font-weight:700;color:var(--cyan);margin:1.2rem 0 .8rem">📊 市场化分析</div>'+
+'<div class="grid2">'+
+'<div class="mcard"><div class="ml">制造难度</div><div class="txt">'+(d.difficulty||'')+'</div></div>'+
+'<div class="mcard"><div class="ml">BOM 明细</div><div class="txt">'+(d.bomDetail||'')+'</div></div>'+
+'</div>'+
+'<div class="grid2">'+
+'<div class="mcard"><div class="ml">认证要求</div><div class="txt">'+(d.cert||'')+'</div></div>'+
+'<div class="mcard"><div class="ml">上市周期</div><div class="txt">'+(d.timeline||'')+'</div></div>'+
+'</div>'+
+'<div class="grid2">'+
+'<div class="mcard"><div class="ml">风险等级</div><div class="txt">'+(d.riskLevel||'')+'</div></div>'+
+'<div class="mcard"><div class="ml">推荐渠道</div><div class="txt">'+(d.channel||'')+'</div></div>'+
+'</div>'+
   '</div>'+
 
   '<div class="back-link"><a href="index.html">&larr; 返回所有方案</a></div>';
